@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAIL_SALON", "NAIL_SALON.csproj", "{A9165117-48FC-4DA7-8474-3547AEC77F19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9165117-48FC-4DA7-8474-3547AEC77F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9165117-48FC-4DA7-8474-3547AEC77F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9165117-48FC-4DA7-8474-3547AEC77F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9165117-48FC-4DA7-8474-3547AEC77F19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFC024C9-E656-4D2A-A91E-62F78C9E44F7}
+	EndGlobalSection
+EndGlobal
