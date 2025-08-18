@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NAIL_SALONModelStoreContainer" CdmEntityContainer="DbNailSalon">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Admin">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Admin">
+        <MappingFragment StoreEntitySet="tbl_Admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Category">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Category">
+        <MappingFragment StoreEntitySet="tbl_Category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_City">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_City">
+        <MappingFragment StoreEntitySet="tbl_City">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="city_name" ColumnName="city_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Customer">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Customer">
+        <MappingFragment StoreEntitySet="tbl_Customer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="district_id" ColumnName="district_id" />
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_District">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_District">
+        <MappingFragment StoreEntitySet="tbl_District">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="district_name" ColumnName="district_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Employer">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Employer">
+        <MappingFragment StoreEntitySet="tbl_Employer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Order">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Order">
+        <MappingFragment StoreEntitySet="tbl_Order">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="total_discount" ColumnName="total_discount" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_OrderDetails">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_OrderDetails">
+        <MappingFragment StoreEntitySet="tbl_OrderDetails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Product">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Product">
+        <MappingFragment StoreEntitySet="tbl_Product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Service">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Service">
+        <MappingFragment StoreEntitySet="tbl_Service">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ServiceProduct">
+      <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_ServiceProduct">
+        <MappingFragment StoreEntitySet="tbl_ServiceProduct">
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

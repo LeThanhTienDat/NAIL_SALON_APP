@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\hoc lap trinh\DotNet\WPFAPP\NAIL_SALON\obj\Debug\
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\
 NAIL_SALON
 none
 false
 DEBUG;TRACE
-C:\hoc lap trinh\DotNet\WPFAPP\NAIL_SALON\App.xaml
-1219584333
-
-6-793535042
-22-1450167074
-MainWindow.xaml;
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\App.xaml
+12111416149
+21887155139
+66-1336057960
+241985863183
+MainWindow.xaml;Models\Components\Customer\CustomerUC.xaml;Models\Components\Employer\EmployerUC.xaml;Models\Components\Product\ProductUC.xaml;Views\Customer\CreateCustomer.xaml;Views\Customer\CustomerView.xaml;Views\Customer\EditCustomer.xaml;Views\Employer\CreateEmployer.xaml;Views\Employer\EditEmployer.xaml;Views\Login\LoginView.xaml;Views\Product\CreateProduct.xaml;Views\Product\EditProduct.xaml;
 
 True
 

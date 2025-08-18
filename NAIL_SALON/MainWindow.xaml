@@ -4,9 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NAIL_SALON"
+        xmlns:materialDesignExtensions="http://materialdesigninxaml.net/winfx/xaml/extensions"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowState="Maximized"
+        Title="MainWindow" Height="450" Width="800"
+        Background="#bbdefb">
     <Grid>
-        
+        <DockPanel>
+            <Menu x:Name="MainMenu" DockPanel.Dock="Top" Background="#2196f3">
+                <MenuItem Header="Admin">
+                    <MenuItem Header="Profile"/>
+                    <Separator/>
+                    <MenuItem Header="Log Out"/>
+                </MenuItem>
+                <MenuItem Header="Products">
+                    <MenuItem Header="All Products"/>
+                </MenuItem>
+                <MenuItem Header="Employer">
+                    <MenuItem Header="All Employer"/>
+                </MenuItem>
+                <MenuItem Header="Orders">
+                    <MenuItem Header="Manage Orders"/>
+                </MenuItem>
+                <MenuItem Header="Customer">
+                    <MenuItem Header="Manage Customer" Click="Customer_Click"/>
+                </MenuItem>
+                <MenuItem Header="Test dialog">
+                    <MenuItem Header="Show Test customer" Click="OpenTestDialogCustomer"/>
+                    <MenuItem Header="Show Test employer" Click="OpenTestdialogEmployer" />
+                    <MenuItem Header="Show Test product" Click="OpenTestdialogProduct"/>
+                </MenuItem>
+
+            </Menu>
+
+            <ContentControl x:Name="MainContent">
+                
+            </ContentControl>
+        </DockPanel>
     </Grid>
 </Window>

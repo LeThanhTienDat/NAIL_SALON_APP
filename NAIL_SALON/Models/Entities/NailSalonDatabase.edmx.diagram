@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="530bbefe9f2f498db4107df090b54282" Name="Diagram1">
+        <EntityTypeShape EntityType="NAIL_SALONModel.sysdiagram" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_Admin" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_Category" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_City" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_Customer" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_District" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_Employer" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_Order" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_OrderDetails" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_Product" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_Service" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAIL_SALONModel.tbl_ServiceProduct" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_Category_product" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_City_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_Customer_order" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_District_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_Employer_order" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_Order_orderdetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_Service_orderdetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_Product_ServiceProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="NAIL_SALONModel.fk_Service_ServiceProduct" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

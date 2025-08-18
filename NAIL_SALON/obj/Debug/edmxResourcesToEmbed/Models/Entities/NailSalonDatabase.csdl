@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NAIL_SALONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="active" Type="Int32" />
+    <Property Name="salt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="active" Type="Int32" />
+    <NavigationProperty Name="tbl_Product" Relationship="Self.fk_Category_product" FromRole="tbl_Category" ToRole="tbl_Product" />
+  </EntityType>
+  <EntityType Name="tbl_City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Customer" Relationship="Self.fk_City_customer" FromRole="tbl_City" ToRole="tbl_Customer" />
+  </EntityType>
+  <EntityType Name="tbl_Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="district_id" Type="Int32" />
+    <Property Name="city_id" Type="Int32" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_City" Relationship="Self.fk_City_customer" FromRole="tbl_Customer" ToRole="tbl_City" />
+    <NavigationProperty Name="tbl_Order" Relationship="Self.fk_Customer_order" FromRole="tbl_Customer" ToRole="tbl_Order" />
+    <NavigationProperty Name="tbl_District" Relationship="Self.fk_District_customer" FromRole="tbl_Customer" ToRole="tbl_District" />
+  </EntityType>
+  <EntityType Name="tbl_District">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="district_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Customer" Relationship="Self.fk_District_customer" FromRole="tbl_District" ToRole="tbl_Customer" />
+  </EntityType>
+  <EntityType Name="tbl_Employer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="salt" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Order" Relationship="Self.fk_Employer_order" FromRole="tbl_Employer" ToRole="tbl_Order" />
+  </EntityType>
+  <EntityType Name="tbl_Order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="total_price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="total_discount" Type="Int32" />
+    <Property Name="customer_id" Type="Int32" />
+    <Property Name="employer_id" Type="Int32" />
+    <Property Name="order_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_Customer" Relationship="Self.fk_Customer_order" FromRole="tbl_Order" ToRole="tbl_Customer" />
+    <NavigationProperty Name="tbl_Employer" Relationship="Self.fk_Employer_order" FromRole="tbl_Order" ToRole="tbl_Employer" />
+    <NavigationProperty Name="tbl_OrderDetails" Relationship="Self.fk_Order_orderdetails" FromRole="tbl_Order" ToRole="tbl_OrderDetails" />
+  </EntityType>
+  <EntityType Name="tbl_OrderDetails">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="service_id" Type="Int32" />
+    <Property Name="order_id" Type="Int32" />
+    <NavigationProperty Name="tbl_Order" Relationship="Self.fk_Order_orderdetails" FromRole="tbl_OrderDetails" ToRole="tbl_Order" />
+    <NavigationProperty Name="tbl_Service" Relationship="Self.fk_Service_orderdetails" FromRole="tbl_OrderDetails" ToRole="tbl_Service" />
+  </EntityType>
+  <EntityType Name="tbl_Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="category_id" Type="Int32" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="active" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Category" Relationship="Self.fk_Category_product" FromRole="tbl_Product" ToRole="tbl_Category" />
+    <NavigationProperty Name="tbl_ServiceProduct" Relationship="Self.fk_Product_ServiceProduct" FromRole="tbl_Product" ToRole="tbl_ServiceProduct" />
+  </EntityType>
+  <EntityType Name="tbl_Service">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="active" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="discount" Type="Int32" />
+    <NavigationProperty Name="tbl_OrderDetails" Relationship="Self.fk_Service_orderdetails" FromRole="tbl_Service" ToRole="tbl_OrderDetails" />
+    <NavigationProperty Name="tbl_ServiceProduct" Relationship="Self.fk_Service_ServiceProduct" FromRole="tbl_Service" ToRole="tbl_ServiceProduct" />
+  </EntityType>
+  <EntityType Name="tbl_ServiceProduct">
+    <Key>
+      <PropertyRef Name="service_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="service_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="tbl_Product" Relationship="Self.fk_Product_ServiceProduct" FromRole="tbl_ServiceProduct" ToRole="tbl_Product" />
+    <NavigationProperty Name="tbl_Service" Relationship="Self.fk_Service_ServiceProduct" FromRole="tbl_ServiceProduct" ToRole="tbl_Service" />
+  </EntityType>
+  <Association Name="fk_Category_product">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_City_customer">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="0..1" />
+    <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_Customer">
+        <PropertyRef Name="city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Customer_order">
+    <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="0..1" />
+    <End Role="tbl_Order" Type="Self.tbl_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_Order">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_District_customer">
+    <End Role="tbl_District" Type="Self.tbl_District" Multiplicity="0..1" />
+    <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_District">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_Customer">
+        <PropertyRef Name="district_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Employer_order">
+    <End Role="tbl_Employer" Type="Self.tbl_Employer" Multiplicity="0..1" />
+    <End Role="tbl_Order" Type="Self.tbl_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Employer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_Order">
+        <PropertyRef Name="employer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Order_orderdetails">
+    <End Role="tbl_Order" Type="Self.tbl_Order" Multiplicity="0..1" />
+    <End Role="tbl_OrderDetails" Type="Self.tbl_OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Order">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_OrderDetails">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Service_orderdetails">
+    <End Role="tbl_Service" Type="Self.tbl_Service" Multiplicity="0..1" />
+    <End Role="tbl_OrderDetails" Type="Self.tbl_OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Service">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_OrderDetails">
+        <PropertyRef Name="service_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Product_ServiceProduct">
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="1" />
+    <End Role="tbl_ServiceProduct" Type="Self.tbl_ServiceProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceProduct">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Service_ServiceProduct">
+    <End Role="tbl_Service" Type="Self.tbl_Service" Multiplicity="1" />
+    <End Role="tbl_ServiceProduct" Type="Self.tbl_ServiceProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Service">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_ServiceProduct">
+        <PropertyRef Name="service_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbNailSalon" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" />
+    <EntitySet Name="tbl_City" EntityType="Self.tbl_City" />
+    <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" />
+    <EntitySet Name="tbl_District" EntityType="Self.tbl_District" />
+    <EntitySet Name="tbl_Employer" EntityType="Self.tbl_Employer" />
+    <EntitySet Name="tbl_Order" EntityType="Self.tbl_Order" />
+    <EntitySet Name="tbl_OrderDetails" EntityType="Self.tbl_OrderDetails" />
+    <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" />
+    <EntitySet Name="tbl_Service" EntityType="Self.tbl_Service" />
+    <EntitySet Name="tbl_ServiceProduct" EntityType="Self.tbl_ServiceProduct" />
+    <AssociationSet Name="fk_Category_product" Association="Self.fk_Category_product">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="fk_City_customer" Association="Self.fk_City_customer">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Customer_order" Association="Self.fk_Customer_order">
+      <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+    </AssociationSet>
+    <AssociationSet Name="fk_District_customer" Association="Self.fk_District_customer">
+      <End Role="tbl_District" EntitySet="tbl_District" />
+      <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Employer_order" Association="Self.fk_Employer_order">
+      <End Role="tbl_Employer" EntitySet="tbl_Employer" />
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Order_orderdetails" Association="Self.fk_Order_orderdetails">
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+      <End Role="tbl_OrderDetails" EntitySet="tbl_OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Service_orderdetails" Association="Self.fk_Service_orderdetails">
+      <End Role="tbl_Service" EntitySet="tbl_Service" />
+      <End Role="tbl_OrderDetails" EntitySet="tbl_OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Product_ServiceProduct" Association="Self.fk_Product_ServiceProduct">
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+      <End Role="tbl_ServiceProduct" EntitySet="tbl_ServiceProduct" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Service_ServiceProduct" Association="Self.fk_Service_ServiceProduct">
+      <End Role="tbl_Service" EntitySet="tbl_Service" />
+      <End Role="tbl_ServiceProduct" EntitySet="tbl_ServiceProduct" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

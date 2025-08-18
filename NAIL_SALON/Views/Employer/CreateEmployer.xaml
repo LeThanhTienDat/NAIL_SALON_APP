@@ -1,0 +1,23 @@
+﻿<Window x:Class="NAIL_SALON.Views.Employer.CreateEmployer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NAIL_SALON.Views.Employer"
+        xmlns:emp="clr-namespace:NAIL_SALON.Models.Components.Employer"
+        mc:Ignorable="d"       
+        Title="CreateEmployer" Height="200" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+
+        <emp:EmployerUC Grid.RowSpan="2" />
+        <Button Content="Add" HorizontalAlignment="Left" Margin="530,5,0,0" VerticalAlignment="Top" FontSize="16" Width="112" Grid.Row="1" Height="32"/>
+        <Button Click="Cancel_Click" Content="Cancel" HorizontalAlignment="Left" Margin="647,5,0,0" VerticalAlignment="Top" FontSize="16" Width="112" Grid.Row="1" Height="32"/>
+
+
+    </Grid>
+</Window>
