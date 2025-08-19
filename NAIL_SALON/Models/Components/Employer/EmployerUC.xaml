@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NAIL_SALON.Models.Components.Employer"
              mc:Ignorable="d" 
              d:DesignWidth="800"
-             Background="White" d:DesignHeight="188"
+             Background="White" d:DesignHeight="200"
              >
     <Grid>
         <Grid.RowDefinitions>
@@ -29,10 +29,14 @@
             <Label Content="Phone Number" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="136" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Row="1"/>
             <Label Content="Password" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="92" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Row="1" Grid.Column="2"/>
             <Label Content="Email" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="92" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Column="2"/>
-            <TextBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Height="30"/>
-            <TextBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Grid.Row="1" Height="30"/>
-            <TextBox Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="234" FontSize="16" Height="30"/>
-            <TextBox Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="16" Grid.Row="1" Height="30" Margin="29,7,0,0"/>
+            <TextBox Text="{Binding CurrentEmployer.Name, UpdateSourceTrigger=PropertyChanged}" x:Name="inputName" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Height="30"/>
+            <TextBox Text="{Binding CurrentEmployer.Phone, UpdateSourceTrigger=PropertyChanged}" x:Name="inputPhone" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Grid.Row="1" Height="30"/>
+            <TextBox Text="{Binding CurrentEmployer.Email, UpdateSourceTrigger=PropertyChanged}" x:Name="inputEmail" Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="234" FontSize="16" Height="30"/>
+            <TextBox Text="{Binding CurrentEmployer.Password, UpdateSourceTrigger=PropertyChanged}" x:Name="inputPassword" Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="16" Grid.Row="1" Height="30" Margin="29,7,0,0"/>
+            <Label Content="Confirm Pw" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="92" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Row="2" Grid.Column="2"/>
+            <TextBox x:Name="inputConfirmPassword" Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Grid.Row="2" Height="30" Margin="29,0,0,0"/>
+            <Label Content="Active" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Height="38" Width="92" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Row="2" Margin="48,0,0,0"/>
+            <CheckBox Grid.Column="1" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" FontSize="16"/>
 
         </Grid>
     </Grid>

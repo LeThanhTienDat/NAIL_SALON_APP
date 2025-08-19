@@ -26,6 +26,7 @@ namespace NAIL_SALON.Models.Entities
         public string password { get; set; }
         public string email { get; set; }
         public string salt { get; set; }
+        public Nullable<int> active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Order> tbl_Order { get; set; }

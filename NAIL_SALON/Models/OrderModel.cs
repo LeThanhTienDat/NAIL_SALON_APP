@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NAIL_SALON.Models
 {
-    internal class Order
+    internal class OrderModel
     {
         public int ID { get; set; }
         public int CustomerId {  get; set; }

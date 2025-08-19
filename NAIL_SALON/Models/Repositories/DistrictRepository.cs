@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class DistrictRepository : IRepository<District>
+    internal class DistrictRepository : IRepository<DistrictModel>
     {
         private static DistrictRepository _instance = null;
         public static DistrictRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(District entity)
+        public void Create(DistrictModel entity)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace NAIL_SALON.Models.Repositories
             }
         }
 
-        public bool Delete(District entity)
+        public bool Delete(DistrictModel entity)
         {
             try
             {
@@ -61,28 +61,28 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<District> FindAll(string filter)
+        public HashSet<DistrictModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<District> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<DistrictModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public District FindById(int id)
+        public DistrictModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<District> GetAll()
+        public HashSet<DistrictModel> GetAll()
         {
             try
             {
                 DbNailSalon en = new DbNailSalon();
                 var items = (from dis in en.tbl_District
-                             select new District
+                             select new DistrictModel
                              {
                                  ID = dis.id,
                                  DistrictName = dis.district_name,
@@ -93,15 +93,15 @@ namespace NAIL_SALON.Models.Repositories
             {
                 Debug.WriteLine(ex.Message);
             }
-            return new HashSet<District>();
+            return new HashSet<DistrictModel>();
         }
 
-        public HashSet<District> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<DistrictModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(District entity)
+        public bool Update(DistrictModel entity)
         {
             try
             {

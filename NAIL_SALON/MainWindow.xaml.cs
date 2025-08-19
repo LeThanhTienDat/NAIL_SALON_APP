@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using NAIL_SALON.Views.Customer;
 using NAIL_SALON.Views.Employer;
 using NAIL_SALON.Views.Product;
+using NAIL_SALON.Views.Service;
 
 namespace NAIL_SALON
 {
@@ -27,34 +28,15 @@ namespace NAIL_SALON
         {
             InitializeComponent();
         }
-        public void OpenTestDialogCustomer(object sender, RoutedEventArgs e)
-        {
-            var testDialog = new CreateCustomer()
-            {
-                Owner = Window.GetWindow(this)
-            };
-            testDialog.ShowDialog();
-        }
-        public void OpenTestdialogEmployer(object sender, RoutedEventArgs e)
-        {
-            var testDialog = new CreateEmployer()
-            {
-                Owner = Window.GetWindow(this)
-            };
-            testDialog.ShowDialog();
-        }
-        public void OpenTestdialogProduct(object sender, RoutedEventArgs e)
-        {
-            var testDialog = new CreateProduct()
-            {
-                Owner = Window.GetWindow(this)
-            };
-            testDialog.ShowDialog();
-        }
+        
 
         public void Customer_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new Views.Customer.CustomerView();
+        }
+        public void Employer_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new Views.Employer.EmployerView();
         }
 
     }

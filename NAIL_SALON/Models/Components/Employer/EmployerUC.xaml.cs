@@ -19,10 +19,10 @@ namespace NAIL_SALON.Models.Components.Employer
     /// Interaction logic for EmployerUC.xaml
     /// </summary>
     public partial class EmployerUC : UserControl
-    {
+    {            
         public EmployerUC()
         {
             InitializeComponent();
-        }
+        }      
     }
 }

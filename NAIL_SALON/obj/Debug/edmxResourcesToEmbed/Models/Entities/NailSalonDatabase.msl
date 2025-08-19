@@ -65,6 +65,7 @@
     <EntitySetMapping Name="tbl_Employer">
       <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Employer">
         <MappingFragment StoreEntitySet="tbl_Employer">
+          <ScalarProperty Name="active" ColumnName="active" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="phone" ColumnName="phone" />

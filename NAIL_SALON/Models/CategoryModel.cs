@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace NAIL_SALON.Models
 {
-    internal class ServiceProduct
+    internal class CategoryModel
     {
-        public int ProductId { get; set; }
-        public int ServiceId {  get; set; }
-        public int Quantity { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Active { get; set; }
     }
 }

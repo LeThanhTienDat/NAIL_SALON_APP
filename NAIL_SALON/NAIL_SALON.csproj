@@ -91,6 +91,11 @@
     <Compile Include="Models\Components\Product\ProductUC.xaml.cs">
       <DependentUpon>ProductUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Components\RelayCommand.cs" />
+    <Compile Include="Models\Components\Service\ServiceUC.xaml.cs">
+      <DependentUpon>ServiceUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Helpers\AddOneConverter.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\EmployerViewModel.cs" />
@@ -113,6 +118,9 @@
     <Compile Include="Views\Employer\EditEmployer.xaml.cs">
       <DependentUpon>EditEmployer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Employer\EmployerView.xaml.cs">
+      <DependentUpon>EmployerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -121,6 +129,12 @@
     </Compile>
     <Compile Include="Views\Product\EditProduct.xaml.cs">
       <DependentUpon>EditProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Service\CreateService.xaml.cs">
+      <DependentUpon>CreateService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Service\EditService.xaml.cs">
+      <DependentUpon>EditService.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +160,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Models\Components\Service\ServiceUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Customer\CreateCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +184,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Employer\EmployerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,16 +200,24 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Service\CreateService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Service\EditService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\Components\AdminSession.cs" />
     <Compile Include="Models\Components\MyCheckBox.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\District.cs" />
-    <Compile Include="Models\Employer.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\DistrictModel.cs" />
+    <Compile Include="Models\EmployerModel.cs" />
     <Compile Include="Models\Entities\NailSalonDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -240,9 +270,9 @@
       <DependentUpon>NailSalonDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Helpers\PasswordHelper.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderDetails.cs" />
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\OrderDetailsModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Repositories\AdminRepository.cs" />
     <Compile Include="Models\Repositories\CategoryRepository.cs" />
     <Compile Include="Models\Repositories\CityRepository.cs" />
@@ -255,8 +285,8 @@
     <Compile Include="Models\Repositories\ProductRepository.cs" />
     <Compile Include="Models\Repositories\ServiceProductRepository.cs" />
     <Compile Include="Models\Repositories\ServiceRepository.cs" />
-    <Compile Include="Models\ServiceProduct.cs" />
-    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\ServiceProductModel.cs" />
+    <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -296,7 +326,6 @@
   <ItemGroup>
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Order\" />
-    <Folder Include="Views\Service\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Entities\NailSalonDatabase.Context.tt">

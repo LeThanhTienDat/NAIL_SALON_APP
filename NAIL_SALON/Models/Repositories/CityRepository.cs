@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class CityRepository : IRepository<City>
+    internal class CityRepository : IRepository<CityModel>
     {
         private static CityRepository _instance = null;
         public static CityRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(City entity)
+        public void Create(CityModel entity)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace NAIL_SALON.Models.Repositories
             }
         }
 
-        public bool Delete(City entity)
+        public bool Delete(CityModel entity)
         {
             try
             {
@@ -61,28 +61,28 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<City> FindAll(string filter)
+        public HashSet<CityModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<City> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<CityModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public City FindById(int id)
+        public CityModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<City> GetAll()
+        public HashSet<CityModel> GetAll()
         {
             try
             {
                 DbNailSalon en = new DbNailSalon();
                 var items = (from city in en.tbl_City
-                             select new City
+                             select new CityModel
                              {
                                  ID = city.id,
                                  CityName = city.city_name
@@ -93,15 +93,15 @@ namespace NAIL_SALON.Models.Repositories
             {
                 Debug.WriteLine(ex.Message);
             }
-            return new HashSet<City>();
+            return new HashSet<CityModel>();
         }
 
-        public HashSet<City> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<CityModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(City entity)
+        public bool Update(CityModel entity)
         {
             try
             {

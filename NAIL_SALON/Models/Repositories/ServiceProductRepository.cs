@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class ServiceProductRepository : IRepository<ServiceProduct>
+    internal class ServiceProductRepository : IRepository<ServiceProductModel>
     {
         private static ServiceProductRepository _instance = null;
         public static ServiceProductRepository Instance
@@ -23,12 +23,12 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;   
             }
         }
-        public void Create(ServiceProduct entity)
+        public void Create(ServiceProductModel entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(ServiceProduct entity)
+        public bool Delete(ServiceProductModel entity)
         {
             try
             {
@@ -48,32 +48,32 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<ServiceProduct> FindAll(string filter)
+        public HashSet<ServiceProductModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<ServiceProduct> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<ServiceProductModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public ServiceProduct FindById(int id)
+        public ServiceProductModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<ServiceProduct> GetAll()
+        public HashSet<ServiceProductModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<ServiceProduct> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<ServiceProductModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(ServiceProduct entity)
+        public bool Update(ServiceProductModel entity)
         {
             try
             {

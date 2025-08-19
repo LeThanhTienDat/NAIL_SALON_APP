@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NAIL_SALON.Models
 {
-    internal class Admin
+    internal class AdminModel
     {
         public int ID { get; set; }
         public string Name { get; set; }

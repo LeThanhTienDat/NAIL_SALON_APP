@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class AdminRepository : IRepository<Admin>
+    internal class AdminRepository : IRepository<AdminModel>
     {
         private static AdminRepository _instance = null;
         public static AdminRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(Admin entity)
+        public void Create(AdminModel entity)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace NAIL_SALON.Models.Repositories
 
         }
 
-        public bool Delete(Admin entity)
+        public bool Delete(AdminModel entity)
         {
             try
             {
@@ -66,32 +66,32 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<Admin> FindAll(string filter)
+        public HashSet<AdminModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Admin> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<AdminModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public Admin FindById(int id)
+        public AdminModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Admin> GetAll()
+        public HashSet<AdminModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Admin> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<AdminModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Admin entity)
+        public bool Update(AdminModel entity)
         {
 
             try

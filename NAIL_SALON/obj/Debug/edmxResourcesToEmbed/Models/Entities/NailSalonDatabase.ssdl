@@ -65,6 +65,7 @@
     <Property Name="password" Type="varchar" MaxLength="100" />
     <Property Name="email" Type="varchar" MaxLength="100" />
     <Property Name="salt" Type="varchar" MaxLength="200" />
+    <Property Name="active" Type="int" />
   </EntityType>
   <EntityType Name="tbl_Order">
     <Key>

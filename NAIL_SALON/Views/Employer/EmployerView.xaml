@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="NAIL_SALON.Views.Employer.EmployerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NAIL_SALON.Views.Employer"
+             xmlns:models="clr-namespace:NAIL_SALON.Models"
+             mc:Ignorable="d" 
+             xmlns:addone="clr-namespace:NAIL_SALON.Models.Helpers"
+             xmlns:materialDesignExtensions="http://materialdesigninxaml.net/winfx/xaml/extensions"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="850" d:DesignWidth="1500"
+             Background="#bbdefb">
+    <UserControl.Resources>
+        <addone:AddOneConverter x:Key="AddOneConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="654*"/>
+            <RowDefinition Height="107*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <materialDesign:PopupBox
+                               Margin="36,0,0,0"
+                               VerticalAlignment="Center"
+                               PlacementMode="RightAndAlignMiddles"
+                               Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                               ToolTip="Manage items"
+                               UnfurlOrientation="Horizontal" Width="57">
+                <StackPanel Orientation="Horizontal">
+                    <Button   Click="OpenCreateEmployer"  
+                              ToolTip="Add new Employer">
+
+                        <Path Width="15"
+                              Height="15"
+                              Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                              Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                              Stretch="Uniform" />
+                    </Button>
+                </StackPanel>
+            </materialDesign:PopupBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid ItemsSource="{Binding Employers}" AutoGenerateColumns="False"
+                              CanUserAddRows="False" RowHeight="50"
+                              HorizontalContentAlignment="Center"
+                              GridLinesVisibility="Horizontal" RowHeaderWidth="0" HeadersVisibility="Column"
+                              Margin="28,10,28,10" Width="1443"                            
+                              >
+
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <!-- ID column -->
+                    <DataGridTextColumn Header="No." IsReadOnly="True" Binding="{Binding RowNumber}" />
+
+                    <!-- Name column -->
+                    <DataGridTextColumn Binding="{Binding Name}" IsReadOnly="True">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBox    Width="120"
+                                           materialDesign:HintAssist.Hint="Name"
+                                           materialDesign:TextFieldAssist.HasClearButton="True"
+                                           Text="{Binding HintText, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+
+                    <!-- Phone column -->
+                    <DataGridTextColumn Binding="{Binding Phone}" IsReadOnly="True">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBox Width="120"
+                                           materialDesign:HintAssist.Hint="Phone"
+                                           materialDesign:TextFieldAssist.HasClearButton="True"
+                                           Text="{Binding HintText, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+
+
+                    <!-- Email column -->
+                    <DataGridTextColumn Binding="{Binding Email}" IsReadOnly="True">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBox Width="120"
+                                           materialDesign:HintAssist.Hint="Email"
+                                           materialDesign:TextFieldAssist.HasClearButton="True"
+                                           Text="{Binding HintText, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+
+
+                    <!-- Active column -->
+                    <DataGridCheckBoxColumn Binding="{Binding IsActive}" Header="Active" IsReadOnly="false"/>
+
+                    <!-- Action column -->
+                    <DataGridTemplateColumn Header="Action">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="Edit"  Width="50" Margin="0,0,5,0"/>
+                                    <Button Content="Delete"  Width="50"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Content="Previous" Command="{Binding PrevPageCommand}" HorizontalAlignment="Left" Margin="1275,17,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Button Content="Next" Command="{Binding NextPageCommand}" HorizontalAlignment="Left" Margin="1374,17,0,0" VerticalAlignment="Top" FontSize="16" Width="93"/>
+            <Button Content="{Binding ShowCurrentPage}" HorizontalAlignment="Left" Margin="1156,17,0,0" VerticalAlignment="Top" FontSize="16" Width="94"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class CustomerRepository : IRepository<Customer>
+    internal class CustomerRepository : IRepository<CustomerModel>
     {
         private static CustomerRepository _instance = null;
         public static CustomerRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(Customer entity)
+        public void Create(CustomerModel entity)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace NAIL_SALON.Models.Repositories
             }
         }
 
-        public bool Delete(Customer entity)
+        public bool Delete(CustomerModel entity)
         {
             try
             {
@@ -67,32 +67,32 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<Customer> FindAll(string filter)
+        public HashSet<CustomerModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Customer> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<CustomerModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public Customer FindById(int id)
+        public CustomerModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Customer> GetAll()
+        public HashSet<CustomerModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Customer> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<CustomerModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Customer entity)
+        public bool Update(CustomerModel entity)
         {
             try
             {

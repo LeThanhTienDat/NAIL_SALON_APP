@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class ProductRepository : IRepository<Product>
+    internal class ProductRepository : IRepository<ProductModel>
     {
         private static ProductRepository _instance = null;
         public static ProductRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;   
             }
         }
-        public void Create(Product entity)
+        public void Create(ProductModel entity)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace NAIL_SALON.Models.Repositories
             }            
         }
 
-        public bool Delete(Product entity)
+        public bool Delete(ProductModel entity)
         {
             try
             {
@@ -68,32 +68,32 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<Product> FindAll(string filter)
+        public HashSet<ProductModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Product> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<ProductModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public Product FindById(int id)
+        public ProductModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Product> GetAll()
+        public HashSet<ProductModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Product> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<ProductModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Product entity)
+        public bool Update(ProductModel entity)
         {
             try
             {

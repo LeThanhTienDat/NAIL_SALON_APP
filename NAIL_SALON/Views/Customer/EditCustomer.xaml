@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NAIL_SALON.Views.Customer"
         xmlns:cus="clr-namespace:NAIL_SALON.Models.Components.Customer"
         mc:Ignorable="d"
-        Title="EditCustomer" Height="250" Width="800"
+        Title="EditCustomer" Height="285" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>

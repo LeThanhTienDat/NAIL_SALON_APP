@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NAIL_SALON.Models.Components.Customer"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="NAIL_SALON.Models.Components.Customer.CustomerUC"
              mc:Ignorable="d" d:DesignWidth="800"
-             Background="White" Height="188"
+             Background="White" Height="250"
             
              >
     <Grid>
@@ -15,10 +15,10 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="52*"/>
-                <RowDefinition Height="52*"/>
-                <RowDefinition Height="52*"/>
-                <RowDefinition Height="52*"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="73*"/>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="54*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150*"/>
@@ -35,10 +35,33 @@
             <TextBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Height="30"/>
             <TextBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Grid.Row="1" Height="30"/>
             <TextBox Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="234" FontSize="16" Height="30"/>
-            <ComboBox Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" Width="234" FontSize="16" Height="30"/>
-            <ComboBox Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" Width="234" FontSize="16" Height="30"/>
-            <DatePicker Grid.Column="1" FontSize="16" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="225"/>
-
+            <DatePicker Grid.Column="1" FontSize="16" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="225" Height="30"/>
+            <ComboBox
+                Grid.Column="3"
+                Grid.Row="1"
+                
+                materialDesign:HintAssist.Hint="Chose City"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}" Height="46" Margin="29,10,29,0" VerticalAlignment="Top">
+                <ComboBoxItem
+                  Content="Item 1" />
+                <ComboBoxItem
+                  Content="Item 2" />
+                <ComboBoxItem
+                  Content="Item 3" />
+            </ComboBox>
+            <ComboBox
+                Grid.Column="3"
+                Grid.Row="2"
+                
+                materialDesign:HintAssist.Hint="Chose District"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}" Height="46" Margin="29,0,29,0">
+                <ComboBoxItem
+                    Content="Item 1" />
+                <ComboBoxItem
+                    Content="Item 2" />
+                <ComboBoxItem
+                    Content="Item 3" />
+            </ComboBox>
         </Grid>
     </Grid>
 </UserControl>

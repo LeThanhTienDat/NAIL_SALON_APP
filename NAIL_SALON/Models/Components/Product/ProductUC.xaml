@@ -37,10 +37,10 @@
                     Background="Transparent" 
                     BorderBrush="Transparent" 
                     BorderThickness="0"
-                    Padding="0" Height="26"
+                    Padding="0" Height="36"
                     Cursor="Hand"
                     Grid.Row="3"
-                    Margin="217,0,21,36" VerticalAlignment="Bottom">
+                    Margin="249,0,80,0" VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <materialDesign:PackIcon Kind="PlusCircle" Width="24" Height="33" Foreground="Blue" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
             <TextBox
@@ -54,10 +54,21 @@
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" Margin="19,0,19,0" />
+            <ComboBox
+                Grid.Row="3"
+                Grid.Column="1"               
+                materialDesign:HintAssist.Hint="Chose Category"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="19,0,21,0">
+                <ComboBoxItem
+                  Content="Item 1" />
+                <ComboBoxItem
+                  Content="Item 2" />
+                <ComboBoxItem
+                  Content="Item 3" />
+            </ComboBox>
             <TextBox Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="287" FontSize="16" Height="30"/>
             <Label Content="Image" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="98" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Column="2" Grid.Row="1"/>
             <Image Grid.Column="3" HorizontalAlignment="Left" Height="194" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="281" Grid.RowSpan="3"/>
-            <ComboBox FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Margin="21,16,0,0" Grid.Row="3" VerticalAlignment="Top" Width="189" Height="31"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -22,7 +22,7 @@
                     <MenuItem Header="All Products"/>
                 </MenuItem>
                 <MenuItem Header="Employer">
-                    <MenuItem Header="All Employer"/>
+                    <MenuItem Header="Manage Employer" Click="Employer_Click"/>
                 </MenuItem>
                 <MenuItem Header="Orders">
                     <MenuItem Header="Manage Orders"/>
@@ -30,11 +30,12 @@
                 <MenuItem Header="Customer">
                     <MenuItem Header="Manage Customer" Click="Customer_Click"/>
                 </MenuItem>
-                <MenuItem Header="Test dialog">
-                    <MenuItem Header="Show Test customer" Click="OpenTestDialogCustomer"/>
-                    <MenuItem Header="Show Test employer" Click="OpenTestdialogEmployer" />
-                    <MenuItem Header="Show Test product" Click="OpenTestdialogProduct"/>
+                <MenuItem Header="Service">
+                    <MenuItem Header="ManageService"/>
+                    <MenuItem Header="Report Service"/>
                 </MenuItem>
+                
+                
 
             </Menu>
 

@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class CategoryRepository : IRepository<Category>
+    internal class CategoryRepository : IRepository<CategoryModel>
     {
         private static CategoryRepository _instance = null;
         public static CategoryRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(Category entity)
+        public void Create(CategoryModel entity)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace NAIL_SALON.Models.Repositories
 
         }
 
-        public bool Delete(Category entity)
+        public bool Delete(CategoryModel entity)
         {
             try
             {
@@ -64,28 +64,28 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<Category> FindAll(string filter)
+        public HashSet<CategoryModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Category> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<CategoryModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public Category FindById(int id)
+        public CategoryModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Category> GetAll()
+        public HashSet<CategoryModel> GetAll()
         {
             try
             {
                 DbNailSalon en = new DbNailSalon();
                 var items = (from cate in en.tbl_Category
-                             select new Category
+                             select new CategoryModel
                              {
                                  ID = cate.id,
                                  Name = cate.name,
@@ -97,15 +97,15 @@ namespace NAIL_SALON.Models.Repositories
             {
                 Debug.WriteLine(ex.Message);
             }
-            return new HashSet<Category>();
+            return new HashSet<CategoryModel>();
         }
 
-        public HashSet<Category> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<CategoryModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Category entity)
+        public bool Update(CategoryModel entity)
         {
             try
             {

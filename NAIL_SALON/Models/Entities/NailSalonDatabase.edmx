@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NAIL_SALONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="NAIL_SALONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -70,6 +70,7 @@
           <Property Name="password" Type="varchar" MaxLength="100" />
           <Property Name="email" Type="varchar" MaxLength="100" />
           <Property Name="salt" Type="varchar" MaxLength="200" />
+          <Property Name="active" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Order">
           <Key>
@@ -282,8 +283,7 @@
             <End Role="tbl_ServiceProduct" EntitySet="tbl_ServiceProduct" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NAIL_SALONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -359,6 +359,7 @@
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="salt" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_Order" Relationship="Self.fk_Employer_order" FromRole="tbl_Employer" ToRole="tbl_Order" />
+          <Property Name="active" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_Order">
           <Key>
@@ -652,6 +653,7 @@
           <EntitySetMapping Name="tbl_Employer">
             <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Employer">
               <MappingFragment StoreEntitySet="tbl_Employer">
+                <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="phone" ColumnName="phone" />

@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class OrderRepository : IRepository<Order>
+    internal class OrderRepository : IRepository<OrderModel>
     {
         private static OrderRepository _instance= null;
         public static OrderRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(Order entity)
+        public void Create(OrderModel entity)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace NAIL_SALON.Models.Repositories
             }
         }
 
-        public bool Delete(Order entity)
+        public bool Delete(OrderModel entity)
         {
             try
             {
@@ -66,32 +66,32 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<Order> FindAll(string filter)
+        public HashSet<OrderModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Order> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<OrderModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public Order FindById(int id)
+        public OrderModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Order> GetAll()
+        public HashSet<OrderModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Order> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<OrderModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Order entity)
+        public bool Update(OrderModel entity)
         {
             try
             {

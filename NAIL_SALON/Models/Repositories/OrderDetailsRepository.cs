@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class OrderDetailsRepository : IRepository<OrderDetails>
+    internal class OrderDetailsRepository : IRepository<OrderDetailsModel>
     {
         private static OrderDetailsRepository _instance = null;
         public static OrderDetailsRepository Instance
@@ -23,7 +23,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(OrderDetails entity)
+        public void Create(OrderDetailsModel entity)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace NAIL_SALON.Models.Repositories
             }
         }
 
-        public bool Delete(OrderDetails entity)
+        public bool Delete(OrderDetailsModel entity)
         {
             try
             {
@@ -63,32 +63,32 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<OrderDetails> FindAll(string filter)
+        public HashSet<OrderDetailsModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<OrderDetails> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<OrderDetailsModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public OrderDetails FindById(int id)
+        public OrderDetailsModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<OrderDetails> GetAll()
+        public HashSet<OrderDetailsModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<OrderDetails> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<OrderDetailsModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(OrderDetails entity)
+        public bool Update(OrderDetailsModel entity)
         {
             try
             {

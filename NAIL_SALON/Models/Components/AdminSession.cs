@@ -9,6 +9,6 @@ namespace NAIL_SALON.Models.Components
     internal class AdminSession
     {
         public bool IsAdmin { get; set; }
-        public Admin CurrentUser { get; set; }
+        public AdminModel CurrentUser { get; set; }
     }
 }

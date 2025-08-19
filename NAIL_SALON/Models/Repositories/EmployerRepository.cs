@@ -9,8 +9,9 @@ using System.Diagnostics;
 
 namespace NAIL_SALON.Models.Repositories
 {
-    internal class EmployerRepository : IRepository<Employer>
+    internal class EmployerRepository : IRepository<EmployerModel>
     {
+        
         private static EmployerRepository _instance = null;
         public static EmployerRepository Instance
         {
@@ -23,7 +24,7 @@ namespace NAIL_SALON.Models.Repositories
                 return _instance;
             }
         }
-        public void Create(Employer entity)
+        public void Create(EmployerModel entity)
         {
             try
             {
@@ -34,7 +35,8 @@ namespace NAIL_SALON.Models.Repositories
                     phone = entity.Phone,
                     password = entity.Password,
                     email = entity.Email,
-                    salt = entity.Salt
+                    salt = entity.Salt,
+                    active = entity.Active,
                 };
                 en.tbl_Employer.Add(item);
                 en.SaveChanges();
@@ -46,7 +48,7 @@ namespace NAIL_SALON.Models.Repositories
             }
         }
 
-        public bool Delete(Employer entity)
+        public bool Delete(EmployerModel entity)
         {
             try
             {
@@ -66,32 +68,58 @@ namespace NAIL_SALON.Models.Repositories
             return false;
         }
 
-        public HashSet<Employer> FindAll(string filter)
+        public HashSet<EmployerModel> FindAll(string filter)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Employer> FindAllPaging(string filter, int index = 1, int pageSize = 10)
+        public HashSet<EmployerModel> FindAllPaging(string filter, int index = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public Employer FindById(int id)
+        public EmployerModel FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public HashSet<Employer> GetAll()
+        public HashSet<EmployerModel> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = (from em in en.tbl_Employer
+                            select new EmployerModel
+                            {
+                                ID = em.id,
+                                Name = em.name,
+                                Phone = em.phone,
+                                Password = em.password,
+                                Email = em.email,
+                                Salt = em.salt,
+                                Active = em.active ?? 0
+                            }).ToHashSet();
+                return item;
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<EmployerModel>();
         }
 
-        public HashSet<Employer> GetAllPaging(int index = 1, int pageSize = 10)
+        public HashSet<EmployerModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            var allEmployers = this.GetAll();
+            if (index < 1) index = 1;
+
+            return allEmployers
+                .Skip((index - 1) * pageSize)
+                .Take(pageSize)
+                .ToHashSet();
         }
 
-        public bool Update(Employer entity)
+        public bool Update(EmployerModel entity)
         {
             try
             {
@@ -103,6 +131,7 @@ namespace NAIL_SALON.Models.Repositories
                     item.phone = entity.Phone;
                     item.email = entity.Email;
                     item.password = entity.Password;
+                    item.active = entity.Active;
                     en.SaveChanges();
                     return true;
                 }
