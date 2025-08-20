@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace NAIL_SALON.Models.Components.Employer
 {
     /// <summary>
-    /// Interaction logic for EmployerUC.xaml
+    /// Interaction logic for EditEmployerUC.xaml
     /// </summary>
-    public partial class EmployerUC : UserControl
-    {            
-        public EmployerUC()
+    public partial class EditEmployerUC : UserControl
+    {
+        public EditEmployerUC()
         {
             InitializeComponent();
         }

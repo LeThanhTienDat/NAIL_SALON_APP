@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <emp:EmployerUC Grid.RowSpan="2" />
-        <Button Content="Add" Command="{Binding CreateEmployerCommand}" HorizontalAlignment="Left" Margin="530,5,0,0" VerticalAlignment="Top" FontSize="16" Width="112" Grid.Row="1" Height="32"/>
+        <Button IsDefault="true" Content="Add" Command="{Binding CreateEmployerCommand}" HorizontalAlignment="Left" Margin="530,5,0,0" VerticalAlignment="Top" FontSize="16" Width="112" Grid.Row="1" Height="32"/>
         <Button Click="Cancel_Click" Content="Cancel" HorizontalAlignment="Left" Margin="647,5,0,0" VerticalAlignment="Top" FontSize="16" Width="112" Grid.Row="1" Height="32"/>
 
 

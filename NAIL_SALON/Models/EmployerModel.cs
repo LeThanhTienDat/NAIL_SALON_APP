@@ -17,6 +17,7 @@ namespace NAIL_SALON.Models
         private string _email;
         private string _salt;
         private int _active;
+        private string _confirmPassword;
 
         public int RowNumber
         {
@@ -114,7 +115,17 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-
+        public string ConfirmPassword
+        {
+            get => _confirmPassword;
+            set
+            {
+                if( _confirmPassword != value) {
+                    _confirmPassword = value;
+                    OnPropertyChanged(nameof(ConfirmPassword));
+                }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)=>

@@ -89,6 +89,7 @@ namespace NAIL_SALON.Models.Repositories
             {
                 DbNailSalon en = new DbNailSalon();
                 var item = (from em in en.tbl_Employer
+                            orderby em.id descending
                             select new EmployerModel
                             {
                                 ID = em.id,
@@ -131,6 +132,26 @@ namespace NAIL_SALON.Models.Repositories
                     item.phone = entity.Phone;
                     item.email = entity.Email;
                     item.password = entity.Password;
+                    item.active = entity.Active;
+                    en.SaveChanges();
+                    return true;
+                }
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return false;
+        }
+
+        public bool ChangeActive(EmployerModel entity)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = en.tbl_Employer.Where(d=>d.id == entity.ID).FirstOrDefault();
+                if (item != null)
+                {
                     item.active = entity.Active;
                     en.SaveChanges();
                     return true;

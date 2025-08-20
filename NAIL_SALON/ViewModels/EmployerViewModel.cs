@@ -1,6 +1,7 @@
 ﻿using NAIL_SALON.Models;
 using NAIL_SALON.Models.Components;
 using NAIL_SALON.Models.Components.Employer;
+using NAIL_SALON.Models.Helpers;
 using NAIL_SALON.Models.Repositories;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,10 @@ namespace NAIL_SALON.ViewModels
         public ICommand NextPageCommand { get; }
         public ICommand PrevPageCommand { get; }
         public ICommand CreateEmployerCommand { get; }
-
+        public ICommand ChangeActiveCommand { get; }
+        public ICommand OpenEditCommand { get; }
+        public ICommand SaveEditCommand { get; }
+        public ICommand DeleteCommand { get; }
 
         private ObservableCollection<EmployerModel> _employers;
         public ObservableCollection<EmployerModel> Employers
@@ -105,6 +109,10 @@ namespace NAIL_SALON.ViewModels
             //    Employers.Add(item);
             //}
             CreateEmployerCommand = new RelayCommand(_ => CreateEmployer());
+            OpenEditCommand = new RelayCommand(param => OpenEdit(param as EmployerModel));
+            ChangeActiveCommand = new RelayCommand(param=>ChangeActive(param as EmployerModel));
+            DeleteCommand = new RelayCommand(param => DeleteEmployer(param as EmployerModel));
+            SaveEditCommand = new RelayCommand(_ => SaveEdit());
             LoadPage(_currentPage);
             NextPageCommand = new RelayCommand(_ => { CurrentPage++; LoadPage(CurrentPage); });
             PrevPageCommand = new RelayCommand(_ => {
@@ -133,13 +141,78 @@ namespace NAIL_SALON.ViewModels
                 newEmployer.Phone = CurrentEmployer.Phone;
                 newEmployer.Email = CurrentEmployer.Email;
                 newEmployer.Password = CurrentEmployer.Password;
+                newEmployer.Active = CurrentEmployer.Active;
+                newEmployer.ConfirmPassword = CurrentEmployer.ConfirmPassword;
 
-                EmployerRepository.Instance.Create(newEmployer);
-                if (newEmployer.ID > 0)
+
+
+                if (newEmployer.Password.Equals(newEmployer.ConfirmPassword))
                 {
-                    //Employers.Add(newEmployer);
+                    string salt = PasswordHelper.GetSalt();
+                    string hashedPw = PasswordHelper.HashPassword(newEmployer.Password, salt);
+
+                    newEmployer.Salt = salt;
+                    newEmployer.Password = hashedPw;
+
+                    EmployerRepository.Instance.Create(newEmployer);
+                    if (newEmployer.ID > 0)
+                    {
+                        //Employers.Add(newEmployer);
+                        IsCreateSuccess = true;
+                        CurrentEmployer = new EmployerModel();
+                        LoadPage(_currentPage);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Confirm Password is doesn't match with password, please try again!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        public void ChangeActive(EmployerModel employer)
+        {
+            try
+            {
+                EmployerModel item = new EmployerModel();
+                item.ID = employer.ID;
+                item.Active = employer.Active == 1 ? 0 : 1 ;
+                EmployerRepository.Instance.ChangeActive(item);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        public void OpenEdit(EmployerModel employer)
+        {
+            IsCreateSuccess = false;
+            var showEdit = new Views.Employer.EditEmployer(employer)
+            {
+                Owner = Application.Current.MainWindow
+            };
+            showEdit.ShowDialog();
+        }
+        public void SaveEdit()
+        {
+            try
+            {
+                EmployerModel updateItem = new EmployerModel();
+                updateItem.ID = CurrentEmployer.ID;
+                updateItem.Name = CurrentEmployer.Name;
+                updateItem.Email = CurrentEmployer.Email;
+                updateItem.Phone = CurrentEmployer.Phone;
+                updateItem.Salt = CurrentEmployer.Salt;
+                updateItem.Password = CurrentEmployer.Password;
+                updateItem.Active = CurrentEmployer.Active;
+                var checkUpdate = EmployerRepository.Instance.Update(updateItem);
+                if (checkUpdate)
+                {
+                    MessageBox.Show("Update successful!");
                     IsCreateSuccess = true;
-                    CurrentEmployer = new EmployerModel();
                     LoadPage(_currentPage);
                 }
             }
@@ -147,6 +220,33 @@ namespace NAIL_SALON.ViewModels
             {
                 Debug.WriteLine(ex.Message);
             }
-        }    
+        }
+
+        public void DeleteEmployer(EmployerModel employer)
+        {
+            try
+            {
+                var confirm = MessageBox.Show("Are you sure to delete this Employer ?", "Status Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (confirm == MessageBoxResult.Yes)
+                {
+                    EmployerModel delItem = new EmployerModel();
+                    delItem.ID = employer.ID;
+                    bool checkDel = EmployerRepository.Instance.Delete(delItem);
+                    if (!checkDel)
+                    {
+                        MessageBox.Show("Fail to delete, please try again!");
+                    }
+                    else
+                    {
+                        LoadPage(_currentPage);
+                        MessageBox.Show("Delete successful!");
+                    }
+                }         
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }       
     }
 }

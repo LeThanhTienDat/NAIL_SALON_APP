@@ -5,14 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NAIL_SALON.Views.Employer"
              xmlns:models="clr-namespace:NAIL_SALON.Models"
-             mc:Ignorable="d" 
-             xmlns:addone="clr-namespace:NAIL_SALON.Models.Helpers"
+             mc:Ignorable="d"      
+             xmlns:intbool="clr-namespace:NAIL_SALON.Models.Components"
              xmlns:materialDesignExtensions="http://materialdesigninxaml.net/winfx/xaml/extensions"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="850" d:DesignWidth="1500"
              Background="#bbdefb">
     <UserControl.Resources>
-        <addone:AddOneConverter x:Key="AddOneConverter" />
+        <intbool:IntBoolConverter x:Key="IntBoolConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -56,6 +56,20 @@
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
                     </Style>
                 </DataGrid.Resources>
+                
+                <!-- Style for Row-->
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Active}" Value="0">
+                                <Setter Property="Background" Value="LightGray"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Active}" Value="1">
+                                <Setter Property="Background" Value="White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
 
                 <DataGrid.Columns>
                     <!-- ID column -->
@@ -65,7 +79,8 @@
                     <DataGridTextColumn Binding="{Binding Name}" IsReadOnly="True">
                         <DataGridTextColumn.HeaderTemplate>
                             <DataTemplate>
-                                <TextBox    Width="120"
+                                <TextBox    Width="120"  
+                                            VerticalContentAlignment="Center"
                                            materialDesign:HintAssist.Hint="Name"
                                            materialDesign:TextFieldAssist.HasClearButton="True"
                                            Text="{Binding HintText, UpdateSourceTrigger=PropertyChanged}" />
@@ -100,18 +115,41 @@
 
 
                     <!-- Active column -->
-                    <DataGridCheckBoxColumn Binding="{Binding IsActive}" Header="Active" IsReadOnly="false"/>
+                    <DataGridTemplateColumn Header="Active">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Active, Converter={StaticResource IntBoolConverter}, Mode=TwoWay}"
+                                  Command="{Binding DataContext.ChangeActiveCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                  CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
                     <!-- Action column -->
-                    <DataGridTemplateColumn Header="Action">
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Action" HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="Edit"  Width="50" Margin="0,0,5,0"/>
-                                    <Button Content="Delete"  Width="50"/>
+                                    <Button Content="Edit" Width="110" Margin="0,0,5,0"
+                                                            Command="{Binding DataContext.OpenEditCommand,
+                                                              RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}" />
+                                    <Button Content="Delete"  Width="110"
+                                            Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            CommandParameter="{Binding}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>

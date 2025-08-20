@@ -85,9 +85,13 @@
     <Compile Include="Models\Components\Customer\CustomerUC.xaml.cs">
       <DependentUpon>CustomerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Components\Employer\EditEmployerUC.xaml.cs">
+      <DependentUpon>EditEmployerUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Components\Employer\EmployerUC.xaml.cs">
       <DependentUpon>EmployerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Components\IntBoolConverter.cs" />
     <Compile Include="Models\Components\Product\ProductUC.xaml.cs">
       <DependentUpon>ProductUC.xaml</DependentUpon>
     </Compile>
@@ -149,6 +153,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Models\Components\Customer\CustomerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Models\Components\Employer\EditEmployerUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
