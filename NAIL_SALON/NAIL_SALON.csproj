@@ -100,6 +100,8 @@
       <DependentUpon>ServiceUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Helpers\AddOneConverter.cs" />
+    <Compile Include="Models\Helpers\StoreImageHelper.cs" />
+    <Compile Include="Models\Helpers\StringHelper.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\EmployerViewModel.cs" />
@@ -133,6 +135,9 @@
     </Compile>
     <Compile Include="Views\Product\EditProduct.xaml.cs">
       <DependentUpon>EditProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Product\ProductView.xaml.cs">
+      <DependentUpon>ProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Service\CreateService.xaml.cs">
       <DependentUpon>CreateService.xaml</DependentUpon>
@@ -205,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Product\EditProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Product\ProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

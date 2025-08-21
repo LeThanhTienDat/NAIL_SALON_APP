@@ -1,9 +1,6 @@
-﻿using NAIL_SALON.Models;
-using NAIL_SALON.Models.Repositories;
-using NAIL_SALON.ViewModels;
+﻿using NAIL_SALON.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,31 +14,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NAIL_SALON.Views.Employer
+namespace NAIL_SALON.Views.Product
 {
     /// <summary>
-    /// Interaction logic for EmployerView.xaml
+    /// Interaction logic for ProductView.xaml
     /// </summary>
-    public partial class EmployerView : UserControl
+    public partial class ProductView : UserControl
     {
-        public EmployerView()
+
+        public ProductView()
         {
             InitializeComponent();
-            DataContext = new EmployerViewModel();
+            DataContext = new ProductViewModel();          
         }
-        public void OpenCreateEmployer(object sender, RoutedEventArgs e)
+
+        public void OpenCreateProduct(object sender, RoutedEventArgs e)
         {
-            var vm = (EmployerViewModel)this.DataContext;
+            var vm = (ProductViewModel)this.DataContext;
             vm.IsCreateSuccess = false;
-            var showDialog = new CreateEmployer(vm)
+            var showDialog = new CreateProduct(vm)
             {
                 Owner = Window.GetWindow(this)
             };
             showDialog.ShowDialog();
+
         }
-
-       
-
-
     }
 }

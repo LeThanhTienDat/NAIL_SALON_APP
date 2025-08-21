@@ -12,14 +12,85 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace NAIL_SALON.ViewModels
 {
     public class EmployerViewModel : INotifyPropertyChanged
     {
+        private HashSet<EmployerModel> _allEmployers; //Main list for filter
         private int _currentPage = 1;
         public string _showCurrentPage = "Page 1";
+        public string _filterName;
+        public string _filterPhone;
+        public string _filterEmail;
+        private int _pageSize = 10;
+        private System.Timers.Timer _filterTimer;
+        public string FilterName
+        {
+            get => _filterName;
+            set
+            {
+                if(_filterName != value)
+                {
+                    _filterName = value;
+                    OnPropertyChanged(nameof(FilterName));
+
+                    if (string.IsNullOrEmpty(_filterName))
+                    {
+                        LoadPage(_currentPage);
+                    }
+                    else
+                    {
+                        DebounceFilter(_currentPage, 400);
+                    }
+                }
+            }
+        }
+        public string FilterPhone
+        {
+            get => _filterPhone;
+            set
+            {
+                if (_filterPhone != value)
+                {
+                    _filterPhone = value;
+                    OnPropertyChanged(nameof(FilterPhone));
+
+                    if (string.IsNullOrEmpty(_filterPhone))
+                    {
+                        LoadPage(_currentPage);
+                    }
+                    else
+                    {
+                        DebounceFilter(_currentPage, 400);
+                    }
+                }
+            }
+        }
+
+        public string FilterEmail
+        {
+            get=> _filterEmail;
+            set
+            {
+                if(_filterEmail != value)
+                {
+                    _filterEmail = value;
+                    OnPropertyChanged(nameof(FilterEmail));
+
+                    if (string.IsNullOrEmpty(_filterEmail))
+                    {
+                        LoadPage(_currentPage);
+                    }
+                    else
+                    {
+                        DebounceFilter(_currentPage, 400);
+                    }
+                }
+            }
+        }
         public int CurrentPage
         {
             get => _currentPage;
@@ -45,7 +116,7 @@ namespace NAIL_SALON.ViewModels
                 }
             }
         }
-        private int _pageSize = 10;
+        
         public ICommand NextPageCommand { get; }
         public ICommand PrevPageCommand { get; }
         public ICommand CreateEmployerCommand { get; }
@@ -101,18 +172,16 @@ namespace NAIL_SALON.ViewModels
         public HashSet<EmployerModel> items;
         public EmployerViewModel()
         {
-            CurrentEmployer  = new EmployerModel();
-            //items = EmployerRepository.Instance.GetAll();
+            _allEmployers = EmployerRepository.Instance.GetAll();//Get Main list for first time
+            CurrentEmployer  = new EmployerModel();           
             Employers = new ObservableCollection<EmployerModel>();
-            //foreach(var item in items)
-            //{               
-            //    Employers.Add(item);
-            //}
+            
             CreateEmployerCommand = new RelayCommand(_ => CreateEmployer());
             OpenEditCommand = new RelayCommand(param => OpenEdit(param as EmployerModel));
             ChangeActiveCommand = new RelayCommand(param=>ChangeActive(param as EmployerModel));
             DeleteCommand = new RelayCommand(param => DeleteEmployer(param as EmployerModel));
             SaveEditCommand = new RelayCommand(_ => SaveEdit());
+
             LoadPage(_currentPage);
             NextPageCommand = new RelayCommand(_ => { CurrentPage++; LoadPage(CurrentPage); });
             PrevPageCommand = new RelayCommand(_ => {
@@ -131,7 +200,32 @@ namespace NAIL_SALON.ViewModels
                 Employers.Add(item);
             }
         }
-                     
+        public void ApplyFilterLoadPage(int page)
+        {
+            if( page <1) page = 1;
+            var filtering = _allEmployers.ToList();
+                          
+            if (!string.IsNullOrEmpty(FilterName))
+                filtering = filtering.Where(e => e.Name != null &&  StringHelper.RemoveDiacritics(e.Name).IndexOf(FilterName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            if (!string.IsNullOrEmpty(FilterPhone))
+                filtering = filtering.Where(e => e.Phone != null && e.Phone.IndexOf(FilterPhone, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            if (!string.IsNullOrEmpty(FilterEmail))
+                filtering = filtering.Where(e => e.Email != null && e.Email.IndexOf(FilterEmail, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            
+            var pageData = filtering
+                .Skip((page-1) * _pageSize)
+                .Take(_pageSize)
+                .ToList();
+            Employers.Clear();
+            int number = 1 + (page - 1) * _pageSize;
+            foreach (var item in pageData)
+            {
+                item.RowNumber = number++;
+                Employers.Add(item);
+            }
+
+        }
+
         private void CreateEmployer()
         {           
             try
@@ -161,6 +255,7 @@ namespace NAIL_SALON.ViewModels
                         IsCreateSuccess = true;
                         CurrentEmployer = new EmployerModel();
                         LoadPage(_currentPage);
+                        _allEmployers = EmployerRepository.Instance.GetAll();
                     }
                 }
                 else
@@ -177,10 +272,9 @@ namespace NAIL_SALON.ViewModels
         {
             try
             {
-                EmployerModel item = new EmployerModel();
-                item.ID = employer.ID;
-                item.Active = employer.Active == 1 ? 0 : 1 ;
-                EmployerRepository.Instance.ChangeActive(item);
+                employer.Active = employer.Active == 1? 0 : 1;
+                EmployerRepository.Instance.ChangeActive(employer);
+                employer.OnPropertyChanged(nameof(EmployerModel.Active));
             }
             catch (Exception ex)
             {
@@ -214,6 +308,7 @@ namespace NAIL_SALON.ViewModels
                     MessageBox.Show("Update successful!");
                     IsCreateSuccess = true;
                     LoadPage(_currentPage);
+                    _allEmployers = EmployerRepository.Instance.GetAll();
                 }
             }
             catch (Exception ex)
@@ -239,6 +334,7 @@ namespace NAIL_SALON.ViewModels
                     else
                     {
                         LoadPage(_currentPage);
+                        _allEmployers = EmployerRepository.Instance.GetAll();
                         MessageBox.Show("Delete successful!");
                     }
                 }         
@@ -247,6 +343,19 @@ namespace NAIL_SALON.ViewModels
             {
                 Debug.WriteLine(ex.Message);
             }
-        }       
+        }
+
+        private void DebounceFilter(int page, int delayMs)
+        {
+            _filterTimer?.Stop();
+            _filterTimer = new System.Timers.Timer(delayMs) { AutoReset = false };
+            _filterTimer.Elapsed += (s, e) =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                    ApplyFilterLoadPage(page)
+                );
+            };
+            _filterTimer.Start();
+        }
     }
 }

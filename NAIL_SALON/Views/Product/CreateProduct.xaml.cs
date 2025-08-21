@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NAIL_SALON.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,27 @@ namespace NAIL_SALON.Views.Product
     /// </summary>
     public partial class CreateProduct : Window
     {
-        public CreateProduct()
+        private ProductViewModel _vm;
+        public CreateProduct(ProductViewModel product)
         {
             InitializeComponent();
+            _vm = product;
+            this.DataContext = _vm;
+            this.Loaded += Vm_CreateProduct_Loaded;
+        }
+        private void Vm_CreateProduct_Loaded(object sender, RoutedEventArgs e)
+        {
+            _vm.PropertyChanged += Vm_PropertyChanged;
+        }
+
+        public void Vm_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == nameof(ProductViewModel.IsCreateSuccess)){
+                if (_vm.IsCreateSuccess == true)
+                {
+                    this.Close();
+                }
+            }
         }
         public void Cancel_Click(object sender, RoutedEventArgs e)
         {

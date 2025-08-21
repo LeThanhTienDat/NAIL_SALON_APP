@@ -18,8 +18,8 @@
                     <Separator/>
                     <MenuItem Header="Log Out"/>
                 </MenuItem>
-                <MenuItem Header="Products">
-                    <MenuItem Header="All Products"/>
+                <MenuItem Header="Products" >
+                    <MenuItem Header="Manage Products" Click="Product_Click"/>
                 </MenuItem>
                 <MenuItem Header="Employer">
                     <MenuItem Header="Manage Employer" Click="Employer_Click"/>

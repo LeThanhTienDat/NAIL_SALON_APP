@@ -83,7 +83,7 @@
                                             VerticalContentAlignment="Center"
                                            materialDesign:HintAssist.Hint="Name"
                                            materialDesign:TextFieldAssist.HasClearButton="True"
-                                           Text="{Binding HintText, UpdateSourceTrigger=PropertyChanged}" />
+                                           Text="{Binding DataContext.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                             </DataTemplate>
                         </DataGridTextColumn.HeaderTemplate>
                     </DataGridTextColumn>
@@ -95,7 +95,7 @@
                                 <TextBox Width="120"
                                            materialDesign:HintAssist.Hint="Phone"
                                            materialDesign:TextFieldAssist.HasClearButton="True"
-                                           Text="{Binding HintText, UpdateSourceTrigger=PropertyChanged}" />
+                                           Text="{Binding DataContext.FilterPhone, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                             </DataTemplate>
                         </DataGridTextColumn.HeaderTemplate>
                     </DataGridTextColumn>
@@ -108,7 +108,7 @@
                                 <TextBox Width="120"
                                            materialDesign:HintAssist.Hint="Email"
                                            materialDesign:TextFieldAssist.HasClearButton="True"
-                                           Text="{Binding HintText, UpdateSourceTrigger=PropertyChanged}" />
+                                           Text="{Binding DataContext.FilterEmail, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                             </DataTemplate>
                         </DataGridTextColumn.HeaderTemplate>
                     </DataGridTextColumn>
@@ -120,7 +120,8 @@
                             <DataTemplate>
                                 <CheckBox IsChecked="{Binding Active, Converter={StaticResource IntBoolConverter}, Mode=TwoWay}"
                                   Command="{Binding DataContext.ChangeActiveCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                  CommandParameter="{Binding}" />
+                                  CommandParameter="{Binding}" 
+                                         />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

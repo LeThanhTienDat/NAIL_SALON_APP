@@ -118,3 +118,5 @@ C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Employe
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Employer\EmployerView.baml
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Models\Components\Employer\EditEmployerUC.g.cs
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Models\Components\Employer\EditEmployerUC.baml
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Product\ProductView.g.cs
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Product\ProductView.baml

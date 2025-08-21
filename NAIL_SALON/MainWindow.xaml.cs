@@ -38,6 +38,10 @@ namespace NAIL_SALON
         {
             MainContent.Content = new Views.Employer.EmployerView();
         }
+        public void Product_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new Views.Product.ProductView();
+        }
 
     }
 }

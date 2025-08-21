@@ -85,12 +85,49 @@ namespace NAIL_SALON.Models.Repositories
 
         public HashSet<ProductModel> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var items = (from pro in en.tbl_Product
+                             join cate in en.tbl_Category on pro.category_id equals cate.id
+                             orderby pro.id descending
+                             select new ProductModel
+                             {
+                                 ID = pro.id,
+                                 Name = pro.name,
+                                 Description = pro.description,
+                                 Price = pro.price ?? 0,
+                                 CategoryId = pro.category_id,
+                                 Stock = pro.stock ?? 0,
+                                 Active = pro.active ?? 0,
+                                 Image = pro.image,
+                                 CategoryName = cate.name
+                             }).ToHashSet();
+                return items;
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<ProductModel>();
         }
 
         public HashSet<ProductModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var allProducts = this.GetAll();
+                if (index < 1) index = 1;
+                return allProducts
+                        .Skip((index - 1) * pageSize)
+                        .Take(pageSize)
+                        .ToHashSet();
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<ProductModel>();
         }
 
         public bool Update(ProductModel entity)
