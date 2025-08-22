@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAIL_SALON.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,15 @@ namespace NAIL_SALON.Views.Service
     /// </summary>
     public partial class CreateService : Window
     {
-        public CreateService()
+        private ServiceViewModel _vm;
+        public CreateService(ServiceViewModel vm)
         {
             InitializeComponent();
+            _vm = vm;
+            this.DataContext = _vm;
         }
+
+
         public void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

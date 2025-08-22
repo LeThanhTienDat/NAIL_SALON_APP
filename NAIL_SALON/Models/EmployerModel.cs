@@ -16,7 +16,7 @@ namespace NAIL_SALON.Models
         private string _password;
         private string _email;
         private string _salt;
-        private int _active;
+        private int _active;        
         private string _confirmPassword;
 
         public int RowNumber

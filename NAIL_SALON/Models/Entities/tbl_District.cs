@@ -22,6 +22,7 @@ namespace NAIL_SALON.Models.Entities
     
         public int id { get; set; }
         public string district_name { get; set; }
+        public Nullable<int> city_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Customer> tbl_Customer { get; set; }

@@ -24,5 +24,7 @@ namespace NAIL_SALON.Models.Components.Product
         {
             InitializeComponent();
         }
+
+       
     }
 }

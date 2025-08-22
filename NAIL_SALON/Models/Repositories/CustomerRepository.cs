@@ -84,12 +84,55 @@ namespace NAIL_SALON.Models.Repositories
 
         public HashSet<CustomerModel> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var items = (from cus in en.tbl_Customer
+                             join dis in en.tbl_District
+                             on cus.district_id equals dis.id into groupDis
+                             from subDis in groupDis.DefaultIfEmpty()
+                             join city in en.tbl_City
+                             on cus.city_id equals city.id into groupCity
+                             from subCity in groupCity.DefaultIfEmpty()
+                             select new CustomerModel
+                             {
+                                 ID = cus.id,
+                                 Name = cus.name,
+                                 Phone = cus.phone,
+                                 Address = cus.address,
+                                 CityId = cus.city_id,
+                                 DistrictId = cus.district_id,
+                                 BirthDay = cus.birthday,
+                                 CityName = subCity != null ? subCity.city_name : null,
+                                 DistrictName = subDis != null ? subDis.district_name : null
+                             }
+                    ).ToHashSet();
+                return items;
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<CustomerModel>();
         }
 
         public HashSet<CustomerModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var allCustomers = this.GetAll();
+                if (index < 1) index = 1;
+                return allCustomers
+                        .Skip((index - 1) * pageSize)
+                        .Take(pageSize)
+                        .ToHashSet();                                    
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<CustomerModel>();
         }
 
         public bool Update(CustomerModel entity)

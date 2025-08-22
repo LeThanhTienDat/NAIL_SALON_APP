@@ -59,6 +59,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="district_name" Type="nvarchar" MaxLength="200" />
+          <Property Name="city_id" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Employer">
           <Key>
@@ -113,7 +114,6 @@
           <Property Name="description" Type="nvarchar" MaxLength="200" />
           <Property Name="price" Type="decimal" Precision="18" Scale="0" />
           <Property Name="active" Type="int" />
-          <Property Name="image" Type="nvarchar" MaxLength="200" />
           <Property Name="discount" Type="int" />
         </EntityType>
         <EntityType Name="tbl_ServiceProduct">
@@ -347,6 +347,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="district_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tbl_Customer" Relationship="Self.fk_District_customer" FromRole="tbl_District" ToRole="tbl_Customer" />
+          <Property Name="city_id" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_Employer">
           <Key>
@@ -409,7 +410,6 @@
           <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="active" Type="Int32" />
-          <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="discount" Type="Int32" />
           <NavigationProperty Name="tbl_OrderDetails" Relationship="Self.fk_Service_orderdetails" FromRole="tbl_Service" ToRole="tbl_OrderDetails" />
           <NavigationProperty Name="tbl_ServiceProduct" Relationship="Self.fk_Service_ServiceProduct" FromRole="tbl_Service" ToRole="tbl_ServiceProduct" />
@@ -645,6 +645,7 @@
           <EntitySetMapping Name="tbl_District">
             <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_District">
               <MappingFragment StoreEntitySet="tbl_District">
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="district_name" ColumnName="district_name" />
               </MappingFragment>
@@ -706,7 +707,6 @@
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="discount" ColumnName="discount" />
               </MappingFragment>
             </EntityTypeMapping>

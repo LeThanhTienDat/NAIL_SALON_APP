@@ -20,7 +20,8 @@ namespace NAIL_SALON.Models
         private string _image;
         private BitmapImage _currentImage;
         private string _categoryName;
-        private int _rowNumber; 
+        private int _rowNumber;
+        public string OriginalImage { get; set; } //Compare when user change IMG
         public int ID
         {
             get => _id;
@@ -118,8 +119,18 @@ namespace NAIL_SALON.Models
             {
                 if(_image != value)
                 {
-                    _image = value;
-                    OnPropetyChanged(nameof(Image));
+                    _image = value; 
+                    string folder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images");
+                    string fullPath = System.IO.Path.Combine(folder, _image);
+                    if(System.IO.File.Exists(fullPath))
+                    {
+                        CurrentImage = new BitmapImage(new Uri(fullPath));
+                    }
+                    else
+                    {
+                        CurrentImage = null;
+                    }
+                        OnPropetyChanged(nameof(Image));
                 }
             }
         }
@@ -164,6 +175,6 @@ namespace NAIL_SALON.Models
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropetyChanged(string  propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public void OnPropetyChanged(string  propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

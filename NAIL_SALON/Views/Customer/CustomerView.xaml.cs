@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NAIL_SALON.ViewModels;
+using NAIL_SALON.Views.Employer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,17 @@ namespace NAIL_SALON.Views.Customer
         public CustomerView()
         {
             InitializeComponent();
+            DataContext = new CustomerViewModel();
+        }
+        public void OpenCreateCustomer(object sender, RoutedEventArgs e)
+        {
+            var vm = (CustomerViewModel)this.DataContext;
+            vm.IsCreateSuccess = false;
+            var showDialog = new CreateCustomer(vm)
+            {
+                Owner = Window.GetWindow(this)
+            };
+            showDialog.ShowDialog();
         }
     }
 }

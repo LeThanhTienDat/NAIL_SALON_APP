@@ -57,6 +57,7 @@
     <EntitySetMapping Name="tbl_District">
       <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_District">
         <MappingFragment StoreEntitySet="tbl_District">
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="district_name" ColumnName="district_name" />
         </MappingFragment>
@@ -118,7 +119,6 @@
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="image" ColumnName="image" />
           <ScalarProperty Name="discount" ColumnName="discount" />
         </MappingFragment>
       </EntityTypeMapping>

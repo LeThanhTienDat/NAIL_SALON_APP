@@ -138,7 +138,32 @@ namespace NAIL_SALON.Models.Repositories
                 var item = en.tbl_Product.Where(d=>d.id==entity.ID).FirstOrDefault();
                 if (item != null)
                 {
-                    en.tbl_Product.Remove(item);
+                    item.name = entity.Name;
+                    item.price = entity.Price;
+                    item.description = entity.Description;
+                    item.stock = entity.Stock;
+                    item.active = entity.Active;
+                    item.category_id = entity.CategoryId;
+                    item.image = entity.Image;
+                    en.SaveChanges();
+                    return true;
+                }
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return false;
+        }
+        public bool ChangeActive(ProductModel entity)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = en.tbl_Product.Where(d=>d.id == entity.ID).FirstOrDefault();
+                if (item != null)
+                {
+                    item.active = entity.Active;
                     en.SaveChanges();
                     return true;
                 }

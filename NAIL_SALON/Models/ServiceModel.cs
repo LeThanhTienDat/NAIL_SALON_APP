@@ -1,19 +1,111 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NAIL_SALON.Models
 {
-    internal class ServiceModel
+    public class ServiceModel: INotifyPropertyChanged
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public int Active { get; set; }
-        public string Image {  get; set; }
-        public int Discount { get; set; }
+        private int _id;
+        private string _name;
+        private string _description;
+        private decimal _price;
+        private int _active;  
+        private int _discount;
+        private int _rowNumber;
+
+        public int ID
+        {
+            get => _id;
+            set
+            {
+                if(_id != value)
+                {
+                    _id = value;
+                    OnPropertyChanged(nameof(ID));
+                }
+            }
+        }
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if(_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged(nameof(Name));
+                }
+            }
+        }
+        public string Description
+        {
+            get => _description;
+            set
+            {
+                if(_description != value)
+                {
+                    _description = value;
+                    OnPropertyChanged(nameof(Description));
+                }
+            }
+        }
+
+        public decimal Price
+        {
+            get => _price;
+            set
+            {
+                if(_price != value)
+                {
+                    _price = value;
+                    OnPropertyChanged(nameof(Price));
+                }
+            }
+        }
+        public int Active
+        {
+            get => _active;
+            set
+            {
+                if(_active != value)
+                {
+                    _active = value;
+                    OnPropertyChanged(nameof(Active));
+                }
+            }
+        }
+        public int Discount
+        {
+            get => _discount;
+            set
+            {
+                if(_discount != value)
+                {
+                    _discount = value;
+                    OnPropertyChanged(nameof(Discount));
+                }
+            }
+        }
+        public int RowNumber
+        {
+            get => _rowNumber;
+            set
+            {
+                if(_rowNumber != value)
+                {
+                    _rowNumber = value;
+                    OnPropertyChanged(nameof(RowNumber));
+                }
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string  propertyName)=>PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); 
     }
 }

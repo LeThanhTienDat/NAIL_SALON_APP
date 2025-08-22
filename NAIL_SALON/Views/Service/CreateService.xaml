@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:NAIL_SALON.Views.Service"
         xmlns:ser="clr-namespace:NAIL_SALON.Models.Components.Service"
         mc:Ignorable="d"
-        Title="CreateService" Height="350" Width="800">
+        Title="CreateService" Height="800" Width="1300"
+        WindowStartupLocation="CenterScreen"
+        Background="#bbdefb">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140*"/>
-            <RowDefinition Height="27*"/>
+            <RowDefinition Height="713*"/>
+            <RowDefinition Height="71*"/>
         </Grid.RowDefinitions>
         <ser:ServiceUC Grid.Row="0" />
         <Grid Grid.Row="1" Margin="0,1,0,0">

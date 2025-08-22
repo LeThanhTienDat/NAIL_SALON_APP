@@ -32,36 +32,34 @@
             <Label Content="Address" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="92" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Column="2"/>
             <Label Content="City" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="92" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Column="2" Grid.Row="1"/>
             <Label Content="District" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="92" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Column="2" Grid.Row="2"/>
-            <TextBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Height="30"/>
-            <TextBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Grid.Row="1" Height="30"/>
-            <TextBox Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="234" FontSize="16" Height="30"/>
-            <DatePicker Grid.Column="1" FontSize="16" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="225" Height="30"/>
+            <TextBox Text="{Binding CurrentCustomer.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Height="30"/>
+            <TextBox Text="{Binding CurrentCustomer.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="226" FontSize="16" Grid.Row="1" Height="30"/>
+            <TextBox Text="{Binding CurrentCustomer.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="234" FontSize="16" Height="30"/>
+            <DatePicker SelectedDate="{Binding CurrentCustomer.BirthDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="16" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="225" Height="30"/>
             <ComboBox
                 Grid.Column="3"
-                Grid.Row="1"
-                
+                Grid.Row="1"    
                 materialDesign:HintAssist.Hint="Chose City"
-                Style="{StaticResource MaterialDesignOutlinedComboBox}" Height="46" Margin="29,10,29,0" VerticalAlignment="Top">
-                <ComboBoxItem
-                  Content="Item 1" />
-                <ComboBoxItem
-                  Content="Item 2" />
-                <ComboBoxItem
-                  Content="Item 3" />
+                ItemsSource="{Binding AllCities}"   
+                SelectedItem="{Binding SelectedCity}"
+                DisplayMemberPath="CityName"
+                SelectedValuePath="ID"
+                SelectedValue="{Binding CurrentCustomer.CityId, Mode=TwoWay}"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}" Height="46" Margin="19,0,21,0">
             </ComboBox>
+            
             <ComboBox
-                Grid.Column="3"
                 Grid.Row="2"
-                
+                Grid.Column="3"               
                 materialDesign:HintAssist.Hint="Chose District"
-                Style="{StaticResource MaterialDesignOutlinedComboBox}" Height="46" Margin="29,0,29,0">
-                <ComboBoxItem
-                    Content="Item 1" />
-                <ComboBoxItem
-                    Content="Item 2" />
-                <ComboBoxItem
-                    Content="Item 3" />
+                ItemsSource="{Binding Districts}"
+                DisplayMemberPath="DistrictName"
+                SelectedValuePath="ID"
+                SelectedValue="{Binding CurrentCustomer.DistrictId, Mode=TwoWay}"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}" Height="46" Margin="19,0,21,0">
+
             </ComboBox>
+            
         </Grid>
     </Grid>
 </UserControl>

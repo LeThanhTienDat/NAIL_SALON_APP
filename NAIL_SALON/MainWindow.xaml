@@ -31,7 +31,7 @@
                     <MenuItem Header="Manage Customer" Click="Customer_Click"/>
                 </MenuItem>
                 <MenuItem Header="Service">
-                    <MenuItem Header="ManageService"/>
+                    <MenuItem Header="ManageService" Click="Service_Click"/>
                     <MenuItem Header="Report Service"/>
                 </MenuItem>
                 

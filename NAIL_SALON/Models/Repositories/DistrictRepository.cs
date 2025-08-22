@@ -86,6 +86,7 @@ namespace NAIL_SALON.Models.Repositories
                              {
                                  ID = dis.id,
                                  DistrictName = dis.district_name,
+                                 CityId = dis.city_id ?? null,
                              }).ToHashSet();
                 return items;
             }

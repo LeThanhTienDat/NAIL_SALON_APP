@@ -20,7 +20,11 @@ namespace NAIL_SALON.Models.Helpers
                 if(CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
                     sb.Append(c);
             }
-            return sb.ToString().Normalize(NormalizationForm.FormC);
+            var result = sb.ToString().Normalize(NormalizationForm.FormC);
+            
+            result = result.Replace('đ', 'd').Replace('Đ', 'D');
+
+            return result;
         }
     }
 }

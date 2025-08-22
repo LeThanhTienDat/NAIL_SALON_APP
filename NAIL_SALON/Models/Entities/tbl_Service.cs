@@ -26,7 +26,6 @@ namespace NAIL_SALON.Models.Entities
         public string description { get; set; }
         public Nullable<decimal> price { get; set; }
         public Nullable<int> active { get; set; }
-        public string image { get; set; }
         public Nullable<int> discount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

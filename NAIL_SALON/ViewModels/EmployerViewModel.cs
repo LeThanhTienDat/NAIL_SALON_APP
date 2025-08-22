@@ -27,6 +27,7 @@ namespace NAIL_SALON.ViewModels
         public string _filterEmail;
         private int _pageSize = 10;
         private System.Timers.Timer _filterTimer;
+        
         public string FilterName
         {
             get => _filterName;
@@ -169,7 +170,7 @@ namespace NAIL_SALON.ViewModels
         }
 
 
-        public HashSet<EmployerModel> items;
+        
         public EmployerViewModel()
         {
             _allEmployers = EmployerRepository.Instance.GetAll();//Get Main list for first time

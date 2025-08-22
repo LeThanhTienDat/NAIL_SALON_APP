@@ -33,8 +33,7 @@ namespace NAIL_SALON.Models.Repositories
                     name = entity.Name,
                     description = entity.Description,
                     price = entity.Price,
-                    active = entity.Active,
-                    image = entity.Image,
+                    active = entity.Active,                    
                     discount = entity.Discount
                 };
                 en.tbl_Service.Add(item);
@@ -84,7 +83,15 @@ namespace NAIL_SALON.Models.Repositories
 
         public HashSet<ServiceModel> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<ServiceModel>();
         }
 
         public HashSet<ServiceModel> GetAllPaging(int index = 1, int pageSize = 10)
@@ -104,7 +111,6 @@ namespace NAIL_SALON.Models.Repositories
                     item.description = entity.Description;
                     item.price = entity.Price;
                     item.active = entity.Active;
-                    item.image = entity.Image;
                     item.discount = entity.Discount;
                     en.SaveChanges();
                     return true;
