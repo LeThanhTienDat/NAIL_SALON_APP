@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Emit;
@@ -17,7 +18,10 @@ namespace NAIL_SALON.Models
         private int _active;  
         private int _discount;
         private int _rowNumber;
+        private int _productAmount;
 
+        private HashSet<ServiceProductModel> _serviceProductModel;
+        public ObservableCollection<ServiceProductModel> DefaultProducts { get; set; }
         public int ID
         {
             get => _id;
@@ -103,7 +107,31 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-
+        public int ProductAmount
+        {
+            get => _productAmount;
+            set
+            {
+                if(_productAmount != value)
+                {
+                    _productAmount = value;
+                    OnPropertyChanged(nameof(ProductAmount));
+                }
+            }
+        }
+        public HashSet<ServiceProductModel> ServiceProductModel
+        {
+            get => _serviceProductModel;
+            set
+            {
+                if(_serviceProductModel != value)
+                {
+                    _serviceProductModel = value;
+                    OnPropertyChanged(nameof(ServiceProductModel));
+                    ProductAmount = value.Count();
+                }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string  propertyName)=>PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); 

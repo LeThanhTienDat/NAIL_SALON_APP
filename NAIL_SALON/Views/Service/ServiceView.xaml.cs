@@ -31,6 +31,7 @@ namespace NAIL_SALON.Views.Service
         {
             var vm = (ServiceViewModel)this.DataContext;
             vm.ProductViewModel = new ProductViewModel();
+            vm.IsCreateSuccess = false;
             var showDialog = new Views.Service.CreateService(vm)
             {
                 Owner = Window.GetWindow(this),

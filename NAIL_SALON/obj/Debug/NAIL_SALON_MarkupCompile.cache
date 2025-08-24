@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\App.xaml
-20-641172934
+231311834514
 21887155139
-781210653819
-241985863183
-MainWindow.xaml;Models\Components\Customer\CustomerUC.xaml;Models\Components\Employer\EditEmployerUC.xaml;Models\Components\Employer\EmployerUC.xaml;Models\Components\Product\EditProductUC.xaml;Models\Components\Product\ProductUC.xaml;Models\Components\Service\ServiceUC.xaml;Views\Customer\CreateCustomer.xaml;Views\Customer\CustomerView.xaml;Views\Customer\EditCustomer.xaml;Views\Employer\CreateEmployer.xaml;Views\Employer\EditEmployer.xaml;Views\Employer\EmployerView.xaml;Views\Login\LoginView.xaml;Views\Product\CreateProduct.xaml;Views\Product\EditProduct.xaml;Views\Product\ProductView.xaml;Views\Service\CreateService.xaml;Views\Service\EditService.xaml;Views\Service\ServiceView.xaml;
+83-1999963473
+29-1452471261
+MainWindow.xaml;Models\Components\Customer\CustomerUC.xaml;Models\Components\Employer\EditEmployerUC.xaml;Models\Components\Employer\EmployerUC.xaml;Models\Components\Product\EditProductUC.xaml;Models\Components\Product\ProductUC.xaml;Models\Components\ServiceProductUC\EditServiceProductUC.xaml;Models\Components\ServiceProductUC\ServiceProductUC.xaml;Models\Components\Service\EditServiceUC.xaml;Models\Components\Service\ServiceUC.xaml;Views\Customer\CreateCustomer.xaml;Views\Customer\CustomerView.xaml;Views\Customer\EditCustomer.xaml;Views\Employer\CreateEmployer.xaml;Views\Employer\EditEmployer.xaml;Views\Employer\EmployerView.xaml;Views\Login\LoginView.xaml;Views\Product\CreateProduct.xaml;Views\Product\EditProduct.xaml;Views\Product\ProductView.xaml;Views\Service\CreateService.xaml;Views\Service\EditService.xaml;Views\Service\ServiceView.xaml;
 
-False
+True
 

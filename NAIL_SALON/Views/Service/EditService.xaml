@@ -4,9 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NAIL_SALON.Views.Service"
+        xmlns:ser="clr-namespace:NAIL_SALON.Models.Components.Service"
         mc:Ignorable="d"
-        Title="EditService" Height="450" Width="800">
+        Title="CreateService" Height="800" Width="1300"
+        WindowStartupLocation="CenterScreen"
+        Background="#bbdefb">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="713*"/>
+            <RowDefinition Height="71*"/>
+        </Grid.RowDefinitions>
+        <ser:EditServiceUC Grid.Row="0" DataContext="{Binding}"/>
+        <Grid Grid.Row="1" Margin="0,1,0,0">
+            <Button Command="{Binding CreateServiceCommand}" Content="Add" HorizontalAlignment="Left" Margin="495,0,0,15" VerticalAlignment="Bottom" FontSize="16" Width="112" Height="32"/>
+            <Button Command="{Binding CloseCreateServiceCommand}" Content="Cancel" HorizontalAlignment="Left" Margin="619,0,0,15" VerticalAlignment="Bottom" FontSize="16" Width="112" Height="32"/>
+
+        </Grid>
     </Grid>
 </Window>

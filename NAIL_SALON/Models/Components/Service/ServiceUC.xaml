@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NAIL_SALON.Models.Components.Service" 
              xmlns:materialDesignExtensions="http://materialdesigninxaml.net/winfx/xaml/extensions"
-                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:serproUc="clr-namespace:NAIL_SALON.Models.Components.ServiceProductUC"   
              xmlns:Components="clr-namespace:NAIL_SALON.Models.Components" x:Class="NAIL_SALON.Models.Components.Service.ServiceUC"
              mc:Ignorable="d"
              d:DesignHeight="800" d:DesignWidth="1300"
@@ -32,8 +33,8 @@
             <Label Content="Description" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Height="38" Width="108" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Row="1" Margin="0,15,0,0"/>
             <Label Content="Active" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Height="38" Width="78" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Margin="0,53,0,0" Grid.Row="1" Grid.Column="2"/>
             <Label Content="Discount" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Height="38" Width="78" HorizontalContentAlignment="Right" BorderBrush="{DynamicResource MaterialDesignShadowBrush}" Grid.Column="2"/>
-            <TextBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="16" Height="30" Margin="0,17,0,0"/>
-            <TextBox Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontSize="16" Grid.Row="1" Height="30" Margin="0,14,0,0"/>
+            <TextBox Text="{Binding CurrentService.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="16" Height="30" Margin="0,17,0,0"/>
+            <TextBox Text="{Binding CurrentService.Price, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontSize="16" Grid.Row="1" Height="30" Margin="0,14,0,0"/>
             <TextBox
                 Height="80"
                 VerticalContentAlignment="Top"
@@ -41,11 +42,12 @@
                 VerticalAlignment="Center"
                 materialDesign:HintAssist.Hint="Service description here"
                 AcceptsReturn="True"
+                Text="{Binding CurrentService.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" Margin="19,0,19,0" Grid.Row="1" />
-            <TextBox Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="246" FontSize="16" Height="30"/>
-            <CheckBox Grid.Column="3" Content="" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="1" VerticalAlignment="Top" Height="18" Width="22"/>
+            <TextBox Text="{Binding CurrentService.Discount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="246" FontSize="16" Height="30"/>
+            <CheckBox IsChecked="{Binding CurrentService.Active, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Content="" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="1" VerticalAlignment="Top" Height="18" Width="22"/>
         </Grid>
         <Grid Grid.Row="1" Background="#bbdefb">
             <Grid.ColumnDefinitions>
@@ -58,79 +60,8 @@
                     <RowDefinition Height="187*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Product Default" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" HorizontalContentAlignment="Center"/>
-                <Grid Grid.Row="1">
-                    <DataGrid ItemsSource="{Binding Services}" AutoGenerateColumns="False"
-                              CanUserAddRows="False" RowHeight="50"
-                              HorizontalContentAlignment="Center"
-                              GridLinesVisibility="Horizontal" RowHeaderWidth="0" HeadersVisibility="Column"
-                              Margin="10,10,10,10"                            
-                              >
-
-                        <DataGrid.Resources>
-                            <Style TargetType="DataGridCell">
-                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                            </Style>
-                        </DataGrid.Resources>
-
-                        <DataGrid.Columns>
-                            <!-- Index column -->
-                            <DataGridTextColumn Header="No." IsReadOnly="True" Binding="{Binding RowNumber}" />
-
-                            <!-- Name column -->
-                            <DataGridTextColumn Binding="{Binding Name}" IsReadOnly="True">
-                                <DataGridTextColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBox    Width="120"  
-                                VerticalContentAlignment="Center"
-                               materialDesign:HintAssist.Hint="Name"
-                               materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                                    </DataTemplate>
-                                </DataGridTextColumn.HeaderTemplate>
-                            </DataGridTextColumn>
-
-                            <!-- Quantity column -->
-                            <DataGridTextColumn Binding="{Binding Phone}" IsReadOnly="True">
-                                <DataGridTextColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBox Width="120"
-                               materialDesign:HintAssist.Hint="Phone"
-                               materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterPhone, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                                    </DataTemplate>
-                                </DataGridTextColumn.HeaderTemplate>
-                            </DataGridTextColumn>
-
-                            <!-- Action column -->
-                            <DataGridTemplateColumn >
-                                <DataGridTemplateColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Action" HorizontalAlignment="Center" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.HeaderTemplate>
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Content="Edit" Width="110" Margin="0,0,5,0"
-                                                Command="{Binding DataContext.OpenEditCommand,
-                                                  RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                                    CommandParameter="{Binding}" />
-                                            <Button Content="Delete"  Width="110"
-                                                    Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                                    CommandParameter="{Binding}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.HeaderStyle>
-                                    <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
-                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                    </Style>
-                                </DataGridTemplateColumn.HeaderStyle>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                <Grid Grid.Row="1" Background="#bbdefb">
+                    <serproUc:ServiceProductUC />
                 </Grid>
             </Grid>
             <Grid Grid.Column="1">
@@ -138,7 +69,23 @@
                     <RowDefinition Height="20*"/>
                     <RowDefinition Height="190*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Product Search Box" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Margin="0,10,0,0" Width="213"/>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="218*"/>
+                        <ColumnDefinition Width="187*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Product Search Box" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" Margin="0,10,0,0" Width="214" Height="35"/>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="144*"/>
+                            <ColumnDefinition Width="120*"/>
+                            <ColumnDefinition Width="120*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Content="Previous" Command="{Binding ProductViewModel.PreviousPageCommand}" FontSize="16" Margin="10,0,10,0" Height="32" VerticalAlignment="Top"/>
+                        <Button Grid.Column="1" Content="Next" Command="{Binding ProductViewModel.NextPageCommand}"  FontSize="16" Margin="117,0,10,0" Grid.ColumnSpan="2" Height="32" VerticalAlignment="Top"/>
+                        <Button Grid.Column="0" Content="{Binding ProductViewModel.ShowCurrentPage}" FontSize="16" Margin="22,0,0,0" Height="32" VerticalAlignment="Top"/>
+                    </Grid>
+                </Grid>
                 <Grid Grid.Row="1">
                     <DataGrid ItemsSource="{Binding ProductViewModel.Products}" AutoGenerateColumns="False"
                       CanUserAddRows="False" RowHeight="100"
@@ -157,7 +104,7 @@
 
                         <DataGrid.Columns>
                             <!-- ID column -->
-                            <DataGridTextColumn Header="No." IsReadOnly="True" Binding="{Binding ProductViewModel.RowNumber}">
+                            <DataGridTextColumn Header="No." IsReadOnly="True" Binding="{Binding RowNumber}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="TextWrapping" Value="Wrap"/>
@@ -216,7 +163,7 @@
                                         <TextBox Width="100"
                                materialDesign:HintAssist.Hint="Price"
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterPrice, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding DataContext.ProductViewModel.FilterPrice, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                     </DataTemplate>
                                 </DataGridTextColumn.HeaderTemplate>
                             </DataGridTextColumn>
@@ -236,7 +183,7 @@
                                         <TextBox    Width="100"
                                materialDesign:HintAssist.Hint="Categoy"
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterCategory, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding DataContext.ProductViewModel.FilterCategory, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                     </DataTemplate>
                                 </DataGridTextColumn.HeaderTemplate>
                             </DataGridTextColumn>
@@ -256,11 +203,11 @@
                                         <TextBox Width="80"
                                materialDesign:HintAssist.Hint="Stock"
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterStock, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding DataContext.ProductViewModel.FilterStock, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                     </DataTemplate>
                                 </DataGridTextColumn.HeaderTemplate>
                             </DataGridTextColumn>
-                          
+
                             <!-- Action column -->
                             <DataGridTemplateColumn >
                                 <DataGridTemplateColumn.HeaderTemplate>

@@ -1,6 +1,7 @@
 ﻿using NAIL_SALON.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,13 +27,29 @@ namespace NAIL_SALON.Views.Service
             InitializeComponent();
             _vm = vm;
             this.DataContext = _vm;
+            this.Loaded += Vm_CreateService_Loaded;
+            this.Closing += CreateService_Closing;
         }
 
-
-        public void Cancel_Click(object sender, RoutedEventArgs e)
+        private void Vm_CreateService_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            _vm.PropertyChanged += Vm_PropertyChanged;
         }
-        
+
+        private void CreateService_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _vm.TempServiceProduct.Clear();
+        }
+
+        public void Vm_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ServiceViewModel.IsCreateSuccess))
+            {
+                if (_vm.IsCreateSuccess == true)
+                {
+                    this.Close();
+                }
+            }
+        }
     }
 }

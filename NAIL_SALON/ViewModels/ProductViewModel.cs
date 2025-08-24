@@ -385,8 +385,8 @@ namespace NAIL_SALON.ViewModels
                     if(parseStock) filtering = filtering.Where(e => e.Stock.ToString().Contains(FilterStock)).ToList();
                 }
                 if (!string.IsNullOrEmpty(FilterCategory))
-                    filtering = filtering.Where(e => e.CategoryName != null && StringHelper.RemoveDiacritics(e.CategoryName).IndexOf(FilterDescription, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-
+                    filtering = filtering.Where(e => e.CategoryName != null && StringHelper.RemoveDiacritics(e.CategoryName).IndexOf(FilterCategory, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                
                 var pageData = filtering
                         .Skip((page -1) * PageSize)
                         .Take(PageSize)

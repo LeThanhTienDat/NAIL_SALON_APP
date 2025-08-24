@@ -1,11 +1,13 @@
-﻿using System;
+﻿using NAIL_SALON.Models.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NAIL_SALON.Models.Entities;
 using System.Data.Entity.Core;
 using System.Diagnostics;
+using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 
 namespace NAIL_SALON.Models.Repositories
 {
@@ -85,7 +87,49 @@ namespace NAIL_SALON.Models.Repositories
         {
             try
             {
-
+                DbNailSalon en = new DbNailSalon();
+                var items = (from ser in en.tbl_Service
+                             join serpro in en.tbl_ServiceProduct on ser.id equals serpro.service_id into serproGroup
+                             from sp in serproGroup.DefaultIfEmpty()
+                             join pro in en.tbl_Product on sp != null ? sp.product_id : 0 equals pro.id into proGroup
+                             from pr in proGroup.DefaultIfEmpty()
+                             orderby ser.id descending
+                             select new
+                             {
+                                 ser, sp, pr
+                             })
+                             .AsEnumerable()
+                             .GroupBy(x => x.ser)
+                             .Select(g => new ServiceModel
+                             {
+                                 ID = g.Key.id,
+                                 Name = g.Key.name,
+                                 Description = g.Key.description,
+                                 Price = g.Key.price ?? 0,
+                                 Active = g.Key.active ?? 0,
+                                 Discount = g.Key.discount ?? 0,
+                                 ServiceProductModel = g.Where(x => x.sp != null)
+                                    .Select(x => new ServiceProductModel
+                                    {
+                                        ServiceId = x.sp.service_id,
+                                        ProductId = x.sp.product_id,
+                                        Quantity = x.sp.quantity ?? 0,
+                                        CurrentProductBelong = x.pr == null ? null : new ProductModel
+                                        {
+                                            ID = x.pr.id,
+                                            Name = x.pr.name,
+                                            Description = x.pr.description,
+                                            Price = x.pr.price ?? 0,
+                                            CategoryId = x.pr.category_id,
+                                            Stock = x.pr.stock ?? 0,
+                                            Active = x.pr.active ?? 0,
+                                            Image = x.pr.image
+                                        }
+                                    }).ToHashSet()
+                             })
+                             .OrderByDescending(ser => ser.ID)
+                             .ToHashSet();                            
+                return items;
             }
             catch (EntityException ex)
             {
@@ -96,7 +140,20 @@ namespace NAIL_SALON.Models.Repositories
 
         public HashSet<ServiceModel> GetAllPaging(int index = 1, int pageSize = 10)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var allServices = this.GetAll();
+                if (index < 1) index = 1;
+                return allServices
+                        .Skip((index - 1) * pageSize)
+                        .Take(pageSize)
+                        .ToHashSet();
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<ServiceModel>();
         }
 
         public bool Update(ServiceModel entity)
@@ -112,6 +169,25 @@ namespace NAIL_SALON.Models.Repositories
                     item.price = entity.Price;
                     item.active = entity.Active;
                     item.discount = entity.Discount;
+                    en.SaveChanges();
+                    return true;
+                }
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return false;
+        }
+        public bool ChangeActive(ServiceModel entity)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = en.tbl_Service.Where(d=> d.id==entity.ID).FirstOrDefault();
+                if (item != null)
+                {
+                    item.active = entity.Active;
                     en.SaveChanges();
                     return true;
                 }

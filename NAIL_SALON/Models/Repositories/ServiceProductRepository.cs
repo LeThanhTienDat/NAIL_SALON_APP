@@ -22,11 +22,27 @@ namespace NAIL_SALON.Models.Repositories
                 }
                 return _instance;   
             }
-        }
+        }       
         public void Create(ServiceProductModel entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = new tbl_ServiceProduct
+                {
+                    service_id = entity.ServiceId,
+                    product_id = entity.ProductId,
+                    quantity = entity.Quantity,
+                };
+                en.tbl_ServiceProduct.Add(item);
+                en.SaveChanges();
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }      
         }
+        
 
         public bool Delete(ServiceProductModel entity)
         {
@@ -62,10 +78,32 @@ namespace NAIL_SALON.Models.Repositories
         {
             throw new NotImplementedException();
         }
-
         public HashSet<ServiceProductModel> GetAll()
         {
             throw new NotImplementedException();
+        }
+
+        public HashSet<ServiceProductModel> GetAllByServiceId(int Id)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var items = (from serPro in en.tbl_ServiceProduct
+                             where serPro.service_id == Id
+                             select new ServiceProductModel
+                             {
+                                 ServiceId = serPro.service_id,
+                                 ProductId = serPro.product_id,
+                                 Quantity = serPro.quantity ?? 0
+                             }
+                            ).ToHashSet();
+                return items;
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new HashSet<ServiceProductModel>();
         }
 
         public HashSet<ServiceProductModel> GetAllPaging(int index = 1, int pageSize = 10)
