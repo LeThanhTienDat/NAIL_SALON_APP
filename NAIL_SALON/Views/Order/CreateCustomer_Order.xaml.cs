@@ -1,5 +1,4 @@
-﻿using NAIL_SALON.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,20 +15,13 @@ using System.Windows.Shapes;
 namespace NAIL_SALON.Views.Order
 {
     /// <summary>
-    /// Interaction logic for CreateOrder.xaml
+    /// Interaction logic for CreateCustomer_Order.xaml
     /// </summary>
-    public partial class CreateOrder : Window
+    public partial class CreateCustomer_Order : Window
     {
-        private OrderViewModel _vm;
-        public CreateOrder(OrderViewModel order)
+        public CreateCustomer_Order()
         {
             InitializeComponent();
-            _vm = order;
-            this.DataContext = order;
-        }       
-        private void NumberOnlyTextBox(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !int.TryParse(e.Text, out _);
         }
     }
 }

@@ -3,52 +3,52 @@
   "WorkspaceRootPath": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\models\\components\\order\\orderuc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:models\\components\\order\\orderuc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\models\\components\\employer\\employeruc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:models\\components\\employer\\employeruc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\order\\createorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\order\\createorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\order\\orderview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\order\\orderview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\order\\createorder.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\order\\createorder.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\order\\orderview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\order\\orderview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\order\\createorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\order\\createorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\viewmodels\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:viewmodels\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\order\\createorder.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\order\\createorder.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\service\\serviceview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\service\\serviceview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\service\\editservice.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\service\\editservice.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\service\\createservice.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\service\\createservice.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\viewmodels\\serviceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:viewmodels\\serviceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\viewmodels\\customerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:viewmodels\\customerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\viewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:viewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\models\\repositories\\servicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:models\\repositories\\servicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\views\\customer\\customerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:views\\customer\\customerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|c:\\hoc lap trinh\\dotnet\\wpfapp\\git_nail_salon\\nail_salon\\models\\components\\order\\orderuc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A9165117-48FC-4DA7-8474-3547AEC77F19}|NAIL_SALON.csproj|solutionrelative:models\\components\\order\\orderuc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,161 +58,165 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 17,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmployerUC.xaml",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Components\\Employer\\EmployerUC.xaml",
-              "RelativeDocumentMoniker": "Models\\Components\\Employer\\EmployerUC.xaml",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Components\\Employer\\EmployerUC.xaml",
-              "RelativeToolTip": "Models\\Components\\Employer\\EmployerUC.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-25T05:46:18.559Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderUC.xaml",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Components\\Order\\OrderUC.xaml",
-              "RelativeDocumentMoniker": "Models\\Components\\Order\\OrderUC.xaml",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Components\\Order\\OrderUC.xaml",
-              "RelativeToolTip": "Models\\Components\\Order\\OrderUC.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-25T05:46:13.763Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateOrder.xaml.cs",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Order\\CreateOrder.xaml.cs",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml.cs",
-              "RelativeToolTip": "Views\\Order\\CreateOrder.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T05:44:46.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateOrder.xaml",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml",
-              "RelativeDocumentMoniker": "Views\\Order\\CreateOrder.xaml",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml",
-              "RelativeToolTip": "Views\\Order\\CreateOrder.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-25T05:44:42.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OrderView.xaml.cs",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\OrderView.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Order\\OrderView.xaml.cs",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\OrderView.xaml.cs",
-              "RelativeToolTip": "Views\\Order\\OrderView.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T05:41:17.165Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ServiceView.xaml.cs",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\ServiceView.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Service\\ServiceView.xaml.cs",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\ServiceView.xaml.cs",
-              "RelativeToolTip": "Views\\Service\\ServiceView.xaml.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T05:41:11.374Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "CustomerViewModel.cs",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\CustomerViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\CustomerViewModel.cs",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\CustomerViewModel.cs",
+              "RelativeToolTip": "ViewModels\\CustomerViewModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:51:03.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ProductViewModel.cs",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\ProductViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ProductViewModel.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAwwIUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:50:17.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderView.xaml",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\OrderView.xaml",
+              "RelativeDocumentMoniker": "Views\\Order\\OrderView.xaml",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\OrderView.xaml",
+              "RelativeToolTip": "Views\\Order\\OrderView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T11:47:17.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateService.xaml.cs",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\CreateService.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Service\\CreateService.xaml.cs",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\CreateService.xaml.cs",
+              "RelativeToolTip": "Views\\Service\\CreateService.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:40:56.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderView.xaml.cs",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\OrderView.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Order\\OrderView.xaml.cs",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\OrderView.xaml.cs",
+              "RelativeToolTip": "Views\\Order\\OrderView.xaml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAuwCYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:40:03.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderViewModel.cs",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\OrderViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\OrderViewModel.cs",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\OrderViewModel.cs",
+              "RelativeToolTip": "ViewModels\\OrderViewModel.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwDQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T11:34:00.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateOrder.xaml.cs",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Order\\CreateOrder.xaml.cs",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml.cs",
+              "RelativeToolTip": "Views\\Order\\CreateOrder.xaml.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T10:37:48.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServiceView.xaml.cs",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\ServiceView.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Service\\ServiceView.xaml.cs",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\ServiceView.xaml.cs",
+              "RelativeToolTip": "Views\\Service\\ServiceView.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T10:57:19.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CustomerView.xaml",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Customer\\CustomerView.xaml",
+              "RelativeDocumentMoniker": "Views\\Customer\\CustomerView.xaml",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Customer\\CustomerView.xaml",
+              "RelativeToolTip": "Views\\Customer\\CustomerView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T10:46:06.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-25T05:39:06.662Z",
+              "WhenOpened": "2025-08-25T10:17:24.503Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwDQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T05:38:32.652Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EditService.xaml",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\EditService.xaml",
-              "RelativeDocumentMoniker": "Views\\Service\\EditService.xaml",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Service\\EditService.xaml",
-              "RelativeToolTip": "Views\\Service\\EditService.xaml",
+              "DocumentIndex": 0,
+              "Title": "CreateOrder.xaml",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml",
+              "RelativeDocumentMoniker": "Views\\Order\\CreateOrder.xaml",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Views\\Order\\CreateOrder.xaml",
+              "RelativeToolTip": "Views\\Order\\CreateOrder.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-25T05:26:38.446Z",
+              "WhenOpened": "2025-08-25T10:09:47.777Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "ServiceRepository.cs",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Repositories\\ServiceRepository.cs",
-              "RelativeDocumentMoniker": "Models\\Repositories\\ServiceRepository.cs",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Repositories\\ServiceRepository.cs",
-              "RelativeToolTip": "Models\\Repositories\\ServiceRepository.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAuwIYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T04:51:40.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ServiceViewModel.cs",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\ServiceViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ServiceViewModel.cs",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\ServiceViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ServiceViewModel.cs",
-              "ViewState": "AgIAALgBAAAAAAAAAAAqwMkBAAByAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T04:18:16.564Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProductViewModel.cs",
-              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\ProductViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ProductViewModel.cs",
-              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\ViewModels\\ProductViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ProductViewModel.cs",
-              "ViewState": "AgIAAHIBAAAAAAAAAAAAAIEBAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T04:17:54.351Z",
+              "Title": "OrderUC.xaml",
+              "DocumentMoniker": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Components\\Order\\OrderUC.xaml",
+              "RelativeDocumentMoniker": "Models\\Components\\Order\\OrderUC.xaml",
+              "ToolTip": "C:\\hoc lap trinh\\DotNet\\WPFAPP\\Git_NAIL_SALON\\NAIL_SALON\\Models\\Components\\Order\\OrderUC.xaml",
+              "RelativeToolTip": "Models\\Components\\Order\\OrderUC.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T10:09:25.145Z",
               "EditorCaption": ""
             }
           ]

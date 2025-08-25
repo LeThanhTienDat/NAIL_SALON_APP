@@ -29,7 +29,10 @@ namespace NAIL_SALON.Views.Order
         public void OpenCreateOrder(object sender, RoutedEventArgs e)
         {
             var vm = (OrderViewModel)this.DataContext;
-            
+            vm.ServiceViewModel = new ServiceViewModel();
+            vm.ProductViewModel = new ProductViewModel();
+            vm.CustomerViewModel = new CustomerViewModel();
+
             var showDialog = new Views.Order.CreateOrder(vm)
             {
                 Owner = Window.GetWindow(this),
