@@ -93,10 +93,12 @@ namespace NAIL_SALON.Models.Repositories
                              from sp in serproGroup.DefaultIfEmpty()
                              join pro in en.tbl_Product on sp != null ? sp.product_id : 0 equals pro.id into proGroup
                              from pr in proGroup.DefaultIfEmpty()
+                             join cate in en.tbl_Category on pr!=null ? pr.category_id : 0 equals cate.id into proCategoryGroup
+                             from ca in proCategoryGroup.DefaultIfEmpty()
                              orderby ser.id descending
                              select new
                              {
-                                 ser, sp, pr
+                                 ser, sp, pr, ca
                              })
                              .AsEnumerable()
                              .GroupBy(x => x.ser)
@@ -123,7 +125,8 @@ namespace NAIL_SALON.Models.Repositories
                                             CategoryId = x.pr.category_id,
                                             Stock = x.pr.stock ?? 0,
                                             Active = x.pr.active ?? 0,
-                                            Image = x.pr.image
+                                            Image = x.pr.image,
+                                            CategoryName = x.ca?.name
                                         }
                                     }).ToHashSet()
                              })
@@ -184,7 +187,7 @@ namespace NAIL_SALON.Models.Repositories
             try
             {
                 DbNailSalon en = new DbNailSalon();
-                var item = en.tbl_Service.Where(d=> d.id==entity.ID).FirstOrDefault();
+                var item = en.tbl_Service.Where(d => d.id == entity.ID).FirstOrDefault();
                 if (item != null)
                 {
                     item.active = entity.Active;
@@ -198,5 +201,6 @@ namespace NAIL_SALON.Models.Repositories
             }
             return false;
         }
+        
     }
 }

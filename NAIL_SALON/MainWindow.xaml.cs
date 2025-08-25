@@ -46,6 +46,11 @@ namespace NAIL_SALON
         {
             MainContent.Content = new Views.Service.ServiceView();
         }
+        public void CreateOrder_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new Views.Order.OrderView();
+        }
+        
 
     }
 }

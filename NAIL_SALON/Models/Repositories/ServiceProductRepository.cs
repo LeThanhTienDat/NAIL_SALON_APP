@@ -89,14 +89,29 @@ namespace NAIL_SALON.Models.Repositories
             {
                 DbNailSalon en = new DbNailSalon();
                 var items = (from serPro in en.tbl_ServiceProduct
+                             join pro in en.tbl_Product on serPro.product_id equals pro.id into proGroup
+                             from pr in proGroup.DefaultIfEmpty()
+                             join cate in en.tbl_Category on pr != null ? pr.category_id : 0 equals cate.id into cateGroup
+                             from ca in cateGroup.DefaultIfEmpty()
                              where serPro.service_id == Id
                              select new ServiceProductModel
                              {
                                  ServiceId = serPro.service_id,
                                  ProductId = serPro.product_id,
-                                 Quantity = serPro.quantity ?? 0
-                             }
-                            ).ToHashSet();
+                                 Quantity = serPro.quantity ?? 0,
+                                 CurrentProductBelong = pr == null ? null : new ProductModel
+                                 {
+                                     ID = pr.id,
+                                     Name = pr.name,
+                                     Description = pr.description,
+                                     Price = pr.price ?? 0,
+                                     CategoryId = pr.category_id,
+                                     Stock = pr.stock ?? 0,
+                                     Active = pr.active ?? 0,
+                                     Image = pr.image,
+                                     CategoryName = ca != null ? ca.name : null
+                                 }
+                             }).ToHashSet();
                 return items;
             }
             catch (EntityException ex)

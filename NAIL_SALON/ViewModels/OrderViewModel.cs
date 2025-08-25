@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NAIL_SALON.ViewModels
 {
-    internal class OrderViewModel : INotifyPropertyChanged
+    public class OrderViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
     }

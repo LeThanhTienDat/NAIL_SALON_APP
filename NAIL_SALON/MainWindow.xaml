@@ -25,7 +25,8 @@
                     <MenuItem Header="Manage Employer" Click="Employer_Click"/>
                 </MenuItem>
                 <MenuItem Header="Orders">
-                    <MenuItem Header="Manage Orders"/>
+                    <MenuItem Header="Create Orders" Click="CreateOrder_Click"/>
+                    <MenuItem Header="Manage Orders" />
                 </MenuItem>
                 <MenuItem Header="Customer">
                     <MenuItem Header="Manage Customer" Click="Customer_Click"/>

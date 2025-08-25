@@ -21,7 +21,8 @@ namespace NAIL_SALON.Models
         private int _productAmount;
 
         private HashSet<ServiceProductModel> _serviceProductModel;
-        public ObservableCollection<ServiceProductModel> DefaultProducts { get; set; }
+        private ObservableCollection<ServiceProductModel> _defaultProducts { get; set; }
+        
         public int ID
         {
             get => _id;
@@ -31,6 +32,27 @@ namespace NAIL_SALON.Models
                 {
                     _id = value;
                     OnPropertyChanged(nameof(ID));
+                }
+            }
+        }
+        public ObservableCollection<ServiceProductModel> DefaultProducts
+        {
+            get => _defaultProducts;
+            set
+            {
+
+                if(_defaultProducts != value)
+                {
+                    if (_defaultProducts != null)
+                        _defaultProducts.CollectionChanged -= DefaultProducts_CollectionChanged;
+
+                    _defaultProducts = value;
+
+                    if (_defaultProducts != null)
+                        _defaultProducts.CollectionChanged += DefaultProducts_CollectionChanged;
+                   
+                    OnPropertyChanged(nameof(DefaultProducts));
+                    ProductAmount = _defaultProducts?.Count ?? 0;
                 }
             }
         }
@@ -131,6 +153,11 @@ namespace NAIL_SALON.Models
                     ProductAmount = value.Count();
                 }
             }
+        }
+
+        private void DefaultProducts_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            ProductAmount = _defaultProducts.Count;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -76,7 +76,7 @@
 
                 <DataGridTemplateColumn.CellEditingTemplate>
                     <DataTemplate>
-                        <xctk:IntegerUpDown Value="{Binding Quantity, Mode=TwoWay}" 
+                        <xctk:IntegerUpDown Value="{Binding  Quantity, Mode=TwoWay}" 
                                 Minimum="0" Maximum="99999"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
@@ -96,9 +96,9 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button Width="50" Margin="0,0,5,0" FontSize="25"
-                                Command="{Binding DataContext.RemoveProductCommand,
+                                Command="{Binding DataContext.EditRemoveProductCommand,
                                   RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                    CommandParameter="{Binding}" >
+                                    CommandParameter="{Binding CurrentProductBelong}" >
                                 <materialDesign:PackIcon Kind="SelectRemove" />
                             </Button>
                         </StackPanel>

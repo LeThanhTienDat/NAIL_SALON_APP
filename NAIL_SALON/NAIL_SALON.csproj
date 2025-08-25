@@ -107,6 +107,9 @@
       <DependentUpon>EmployerUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Components\IntBoolConverter.cs" />
+    <Compile Include="Models\Components\Order\OrderUC.xaml.cs">
+      <DependentUpon>OrderUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Components\Product\EditProductUC.xaml.cs">
       <DependentUpon>EditProductUC.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,12 @@
     <Compile Include="Views\Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Order\CreateOrder.xaml.cs">
+      <DependentUpon>CreateOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\OrderView.xaml.cs">
+      <DependentUpon>OrderView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Product\CreateProduct.xaml.cs">
       <DependentUpon>CreateProduct.xaml</DependentUpon>
     </Compile>
@@ -197,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Models\Components\Employer\EmployerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Models\Components\Order\OrderUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,6 +262,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Login\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Order\CreateOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Order\OrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -393,7 +414,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Entities\NailSalonDatabase.Context.tt">

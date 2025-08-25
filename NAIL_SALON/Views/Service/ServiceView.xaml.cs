@@ -32,11 +32,30 @@ namespace NAIL_SALON.Views.Service
             var vm = (ServiceViewModel)this.DataContext;
             vm.ProductViewModel = new ProductViewModel();
             vm.IsCreateSuccess = false;
+            vm.RequestRefresh += () =>
+            {
+                RefreshView();
+            };
             var showDialog = new Views.Service.CreateService(vm)
             {
                 Owner = Window.GetWindow(this),
             };
             showDialog.ShowDialog();
+            
         }
+        public void RefreshView()
+        {
+            var parent = this.Parent as ContentControl;
+            if (parent != null)
+            {
+                var temp = parent.Content;
+                parent.Content = null;
+                parent.Content = temp;
+            }
+        }
+        private void NumberOnlyTextBox(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !int.TryParse(e.Text, out _);
+        }       
     }
 }

@@ -62,7 +62,7 @@
                 </Grid.RowDefinitions>
                 <Label Content="Product Default" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" HorizontalContentAlignment="Center"/>
                 <Grid Grid.Row="1" Background="#bbdefb">
-                    <serproUc:EditServiceProductUC />
+                    <serproUc:EditServiceProductUC/>
                 </Grid>
             </Grid>
             <Grid Grid.Column="1">
@@ -220,7 +220,7 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Content="Chose" Width="110" Margin="0,0,5,0"
-                                                Command="{Binding DataContext.ChoseProductCommand,
+                                                Command="{Binding DataContext.EditChoseProductCommand,
                                                   RelativeSource={RelativeSource AncestorType=UserControl}}"
                                 CommandParameter="{Binding}" />
                                         </StackPanel>
