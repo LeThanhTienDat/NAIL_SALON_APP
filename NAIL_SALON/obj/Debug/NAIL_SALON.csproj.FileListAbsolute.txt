@@ -156,3 +156,9 @@ C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Models\Compon
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Models\Components\Order\OrderUC.baml
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Order\CreateCustomer_Order.g.cs
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Order\CreateCustomer_Order.baml
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Admin\AdminView.g.cs
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Admin\AdminView.baml
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Models\Components\Admin\AdminUC.g.cs
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Admin\CreateAdmin.g.cs
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Models\Components\Admin\AdminUC.baml
+C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\obj\Debug\Views\Admin\CreateAdmin.baml

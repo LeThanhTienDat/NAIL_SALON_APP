@@ -1,0 +1,23 @@
+﻿<Window x:Class="NAIL_SALON.Views.Admin.CreateAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NAIL_SALON.Views.Admin"
+        xmlns:adm="clr-namespace:NAIL_SALON.Models.Components.Admin"
+        mc:Ignorable="d"       
+        Title="CreateAdmin" Height="250" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="24*"/>
+        </Grid.RowDefinitions>
+
+        <adm:AdminUC Grid.RowSpan="2" />
+        <Button IsDefault="true" Content="Add" Command="{Binding CreateAdminCommand}" HorizontalAlignment="Left" Margin="530,5,0,0" VerticalAlignment="Top" FontSize="16" Width="112" Grid.Row="1" Height="32"/>
+        <Button Content="Cancel" Click="Cancel_Click" HorizontalAlignment="Left" Margin="647,5,0,0" VerticalAlignment="Top" FontSize="16" Width="112" Grid.Row="1" Height="32"/>
+
+
+    </Grid>
+</Window>

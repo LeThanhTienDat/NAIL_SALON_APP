@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="NAIL_SALON.Views.Admin.AdminView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NAIL_SALON.Views.Admin"
+             xmlns:models="clr-namespace:NAIL_SALON.Models"
+             mc:Ignorable="d"      
+             xmlns:intbool="clr-namespace:NAIL_SALON.Models.Components"
+             xmlns:materialDesignExtensions="http://materialdesigninxaml.net/winfx/xaml/extensions"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="850" d:DesignWidth="1500"
+             Background="#bbdefb"
+                >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="654*"/>
+            <RowDefinition Height="107*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <materialDesign:PopupBox
+                               Margin="36,0,0,0"
+                               VerticalAlignment="Center"
+                               PlacementMode="RightAndAlignMiddles"
+                               Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                               ToolTip="Manage items"
+                               UnfurlOrientation="Horizontal" Width="57">
+                <StackPanel Orientation="Horizontal">
+                    <Button   Click="OpenCreateAdmin"
+                              ToolTip="Add new Admin">
+
+                        <Path Width="15"
+                              Height="15"
+                              Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                              Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                              Stretch="Uniform" />
+                    </Button>
+                </StackPanel>
+            </materialDesign:PopupBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            
+        </Grid>
+        
+    </Grid>
+</UserControl>

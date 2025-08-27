@@ -50,6 +50,10 @@ namespace NAIL_SALON
         {
             MainContent.Content = new Views.Order.OrderView();
         }
+        public void Admin_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new Views.Admin.AdminView();
+        }
         
 
     }

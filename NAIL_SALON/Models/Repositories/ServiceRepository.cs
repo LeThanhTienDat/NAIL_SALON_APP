@@ -80,7 +80,63 @@ namespace NAIL_SALON.Models.Repositories
 
         public ServiceModel FindById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = (from ser in en.tbl_Service
+                            where ser.id == id
+                            join serpro in en.tbl_ServiceProduct on ser.id equals serpro.service_id into serproGroup
+                            from sp in serproGroup.DefaultIfEmpty()
+                            join pro in en.tbl_Product on sp != null ? sp.product_id : 0 equals pro.id into proGroup
+                            from pr in proGroup.DefaultIfEmpty()
+                            join cate in en.tbl_Category on pr != null ? pr.category_id : 0 equals cate.id into proCategoryGroup
+                            from ca in proCategoryGroup.DefaultIfEmpty()
+                            orderby ser.id descending
+                            select new
+                            {
+                                ser,
+                                sp,
+                                pr,
+                                ca
+                            })
+                             .AsEnumerable()
+                             .GroupBy(x => x.ser)
+                             .Select(g => new ServiceModel
+                             {
+                                 ID = g.Key.id,
+                                 Name = g.Key.name,
+                                 Description = g.Key.description,
+                                 Price = g.Key.price ?? 0,
+                                 Active = g.Key.active ?? 0,
+                                 Discount = g.Key.discount ?? 0,
+                                 ServiceProductModel = g.Where(x => x.sp != null)
+                                    .Select(x => new ServiceProductModel
+                                    {
+                                        ServiceId = x.sp.service_id,
+                                        ProductId = x.sp.product_id,
+                                        Quantity = x.sp.quantity ?? 0,
+                                        CurrentProductBelong = x.pr == null ? null : new ProductModel
+                                        {
+                                            ID = x.pr.id,
+                                            Name = x.pr.name,
+                                            Description = x.pr.description,
+                                            Price = x.pr.price ?? 0,
+                                            CategoryId = x.pr.category_id,
+                                            Stock = x.pr.stock ?? 0,
+                                            Active = x.pr.active ?? 0,
+                                            Image = x.pr.image,
+                                            CategoryName = x.ca?.name
+                                        }
+                                    }).ToHashSet()
+                             })
+                             .FirstOrDefault();                            
+                return item;
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return new ServiceModel();
         }
 
         public HashSet<ServiceModel> GetAll()

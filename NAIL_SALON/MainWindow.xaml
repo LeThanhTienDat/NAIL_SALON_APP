@@ -14,7 +14,7 @@
         <DockPanel>
             <Menu x:Name="MainMenu" DockPanel.Dock="Top" Background="#2196f3">
                 <MenuItem Header="Admin">
-                    <MenuItem Header="Profile"/>
+                    <MenuItem Header="Profile" Click="Admin_Click"/>
                     <Separator/>
                     <MenuItem Header="Log Out"/>
                 </MenuItem>

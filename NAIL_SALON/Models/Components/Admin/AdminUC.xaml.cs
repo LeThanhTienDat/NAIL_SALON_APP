@@ -14,32 +14,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NAIL_SALON.Views.Order
+namespace NAIL_SALON.Models.Components.Admin
 {
     /// <summary>
-    /// Interaction logic for OrderView.xaml
+    /// Interaction logic for AdminUC.xaml
     /// </summary>
-    public partial class OrderView : UserControl
+    public partial class AdminUC : UserControl
     {
-        public OrderView()
+        public AdminUC()
         {
             InitializeComponent();
-            DataContext = new OrderViewModel();
         }
-        public void OpenCreateOrder(object sender, RoutedEventArgs e)
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            var vm = (OrderViewModel)this.DataContext;
-            vm.ServiceViewModel = new ServiceViewModel();
-            vm.ProductViewModel = new ProductViewModel();
-            vm.CustomerViewModel = new CustomerViewModel();
-            var showDialog = new Views.Order.CreateOrder(vm)
+            if (this.DataContext is AdminViewModel vm)
             {
-                Owner = Window.GetWindow(this),
-            };
-            showDialog.ShowDialog();
-
+                vm.CurrentAdmin.Password = (sender as PasswordBox).Password;
+            }
         }
-
+        private void PasswordBox_ConfirmPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is AdminViewModel vm)
+            {
+                vm.CurrentAdmin.ConfirmPassword = (sender as PasswordBox).Password;
+            }
+        }
         private void NumberOnlyTextBox(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !int.TryParse(e.Text, out _);
