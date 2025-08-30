@@ -171,7 +171,7 @@
               VerticalContentAlignment="Center"                                      
              materialDesign:HintAssist.Hint="Name"
              materialDesign:TextFieldAssist.HasClearButton="True"
-             Text="{Binding DataContext.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+             Text="{Binding DataContext.ProductViewModel.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
@@ -191,7 +191,7 @@
                                     <TextBox Width="120"
              materialDesign:HintAssist.Hint="Price"
              materialDesign:TextFieldAssist.HasClearButton="True"
-             Text="{Binding DataContext.FilterPrice, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+             Text="{Binding DataContext.ProductViewModel.FilterPrice, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
@@ -211,7 +211,7 @@
                                     <TextBox Width="120"
              materialDesign:HintAssist.Hint="Amount in Stock"
              materialDesign:TextFieldAssist.HasClearButton="True"
-             Text="{Binding DataContext.FilterStock, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+             Text="{Binding DataContext.ProductViewModel.FilterStock, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
