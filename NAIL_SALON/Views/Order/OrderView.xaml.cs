@@ -1,4 +1,5 @@
-﻿using NAIL_SALON.ViewModels;
+﻿using NAIL_SALON.Models;
+using NAIL_SALON.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace NAIL_SALON.Views.Order
     /// </summary>
     public partial class OrderView : UserControl
     {
-        public OrderView()
+        private SessionModel _user;
+        public OrderView(SessionModel user)
         {
             InitializeComponent();
-            DataContext = new OrderViewModel();
+            _user = user;
+            DataContext = new OrderViewModel(_user);
         }
         public void OpenCreateOrder(object sender, RoutedEventArgs e)
         {
@@ -32,7 +35,17 @@ namespace NAIL_SALON.Views.Order
             vm.ServiceViewModel = new ServiceViewModel();
             vm.ProductViewModel = new ProductViewModel();
             vm.CustomerViewModel = new CustomerViewModel();
-            var showDialog = new Views.Order.CreateOrder(vm)
+            vm.CurrentShowedOrder = new OrderModel();
+            if(vm.ServiceViewModel.CurrentService.DefaultProducts != null)
+            {
+                vm.ServiceViewModel.CurrentService.DefaultProducts.Clear();
+            }
+            if(vm.CurrentOrder.OrderDetailsModel != null)
+            {
+                vm.CurrentOrder.OrderDetailsModel.Clear();
+            }
+            vm.IsCreateSuccess = false;
+            var showDialog = new Views.Order.CreateOrder(vm, _user)
             {
                 Owner = Window.GetWindow(this),
             };
@@ -44,5 +57,6 @@ namespace NAIL_SALON.Views.Order
         {
             e.Handled = !int.TryParse(e.Text, out _);
         }
+        
     }
 }

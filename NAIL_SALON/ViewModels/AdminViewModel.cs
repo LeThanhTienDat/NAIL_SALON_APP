@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using NAIL_SALON.Models;
 using NAIL_SALON.Models.Components;
+using NAIL_SALON.Models.Helpers;
 using NAIL_SALON.Models.Repositories;
 
 namespace NAIL_SALON.ViewModels
@@ -64,13 +65,19 @@ namespace NAIL_SALON.ViewModels
                 {
                     MessageBox.Show("Please input all Information!");
                 }
+                else if(item.ConfirmPassword.Trim() != item.Password.Trim())
+                {
+                    MessageBox.Show("Password Confirmation doesn't match, please try again!");
+                }
                 else
                 {
-
+                    item.Salt = PasswordHelper.GetSalt();
+                    item.Password = PasswordHelper.HashPassword(item.Password, item.Salt);
                     AdminRepository.Instance.Create(item);
-                    if(item.ID > 0)
+                    if (item.ID > 0)
                     {
                         MessageBox.Show("Create Success!");
+                        IsCreateSuccess = true;
                     }
                 }
             }

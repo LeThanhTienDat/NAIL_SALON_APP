@@ -290,6 +290,15 @@ namespace NAIL_SALON.ViewModels
             int number = 1 + (page - 1) * PageSize;
             foreach(var item in pageData)
             {
+                var checkOrdering = CustomerRepository.Instance.IsOrdering(item);
+                if (checkOrdering)
+                {
+                    item.IsOrdering = true;
+                }
+                else
+                {
+                    item.IsOrdering = false;
+                }
                 item.RowNumber = number++;
                 Customers.Add(item);
             }

@@ -63,6 +63,25 @@ namespace NAIL_SALON.Models.Repositories
             }
             return false;
         }
+        public bool DeleteById(int serviceId)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var items = en.tbl_ServiceProduct.Where(d => d.service_id == serviceId).ToList();
+                foreach(var item in items)
+                {
+                    en.tbl_ServiceProduct.Remove(item);
+                    en.SaveChanges();
+                }
+                return true;
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return false;
+        }
 
         public HashSet<ServiceProductModel> FindAll(string filter)
         {

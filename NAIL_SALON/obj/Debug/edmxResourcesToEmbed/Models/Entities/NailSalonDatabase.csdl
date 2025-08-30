@@ -88,6 +88,8 @@
     <NavigationProperty Name="tbl_Customer" Relationship="Self.fk_Customer_order" FromRole="tbl_Order" ToRole="tbl_Customer" />
     <NavigationProperty Name="tbl_Employer" Relationship="Self.fk_Employer_order" FromRole="tbl_Order" ToRole="tbl_Employer" />
     <NavigationProperty Name="tbl_OrderDetails" Relationship="Self.fk_Order_orderdetails" FromRole="tbl_Order" ToRole="tbl_OrderDetails" />
+    <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="payment_confirm" Type="Int32" />
   </EntityType>
   <EntityType Name="tbl_OrderDetails">
     <Key>

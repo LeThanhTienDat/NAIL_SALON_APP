@@ -83,6 +83,8 @@
           <Property Name="customer_id" Type="int" />
           <Property Name="employer_id" Type="int" />
           <Property Name="order_date" Type="date" />
+          <Property Name="status" Type="varchar" MaxLength="100" />
+          <Property Name="payment_confirm" Type="int" />
         </EntityType>
         <EntityType Name="tbl_OrderDetails">
           <Key>
@@ -375,6 +377,8 @@
           <NavigationProperty Name="tbl_Customer" Relationship="Self.fk_Customer_order" FromRole="tbl_Order" ToRole="tbl_Customer" />
           <NavigationProperty Name="tbl_Employer" Relationship="Self.fk_Employer_order" FromRole="tbl_Order" ToRole="tbl_Employer" />
           <NavigationProperty Name="tbl_OrderDetails" Relationship="Self.fk_Order_orderdetails" FromRole="tbl_Order" ToRole="tbl_OrderDetails" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="payment_confirm" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_OrderDetails">
           <Key>
@@ -667,6 +671,8 @@
           <EntitySetMapping Name="tbl_Order">
             <EntityTypeMapping TypeName="NAIL_SALONModel.tbl_Order">
               <MappingFragment StoreEntitySet="tbl_Order">
+                <ScalarProperty Name="payment_confirm" ColumnName="payment_confirm" />
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="total_price" ColumnName="total_price" />
                 <ScalarProperty Name="total_discount" ColumnName="total_discount" />

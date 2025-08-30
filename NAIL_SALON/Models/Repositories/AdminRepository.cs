@@ -33,7 +33,8 @@ namespace NAIL_SALON.Models.Repositories
                     name = entity.Name,
                     phone = entity.Phone,
                     password = entity.Password,
-                    salt = entity.Salt
+                    salt = entity.Salt,
+                    active = entity.Active                   
                 };
                 en.tbl_Admin.Add(item);
                 en.SaveChanges();
@@ -79,6 +80,30 @@ namespace NAIL_SALON.Models.Repositories
         public AdminModel FindById(int id)
         {
             throw new NotImplementedException();
+        }
+        public AdminModel FindByPhone(string phone)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = (from ad in en.tbl_Admin
+                            where ad.phone.Equals(phone)
+                            select new AdminModel
+                            {
+                                ID = ad.id,
+                                Name = ad.name,
+                                Phone = ad.phone,
+                                Password = ad.password,
+                                Active = ad.active ?? 0,
+                                Salt = ad.salt,
+                            }).FirstOrDefault();
+                return item;    
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return null;
         }
 
         public HashSet<AdminModel> GetAll()

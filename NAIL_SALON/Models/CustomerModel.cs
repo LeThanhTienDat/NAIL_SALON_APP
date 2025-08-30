@@ -21,6 +21,7 @@ namespace NAIL_SALON.Models
         private string _fullAddress;
         private DateTime? _birthDay;
         private int _rowNumber;
+        private bool _isOrdering;
 
         public int ID
         {
@@ -28,6 +29,18 @@ namespace NAIL_SALON.Models
             set
             {
                 if (_id != value) { _id = value; OnPropertyChanged(nameof(ID)); }
+            }
+        }
+        public bool IsOrdering
+        {
+            get => _isOrdering;
+            set
+            {
+                if(_isOrdering != value)
+                {
+                    _isOrdering = value; 
+                    OnPropertyChanged(nameof(IsOrdering));
+                }
             }
         }
         public string Name

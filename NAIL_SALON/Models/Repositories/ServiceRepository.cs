@@ -90,7 +90,7 @@ namespace NAIL_SALON.Models.Repositories
                             join pro in en.tbl_Product on sp != null ? sp.product_id : 0 equals pro.id into proGroup
                             from pr in proGroup.DefaultIfEmpty()
                             join cate in en.tbl_Category on pr != null ? pr.category_id : 0 equals cate.id into proCategoryGroup
-                            from ca in proCategoryGroup.DefaultIfEmpty()
+                            from ca in proCategoryGroup.DefaultIfEmpty()                            
                             orderby ser.id descending
                             select new
                             {
@@ -151,6 +151,7 @@ namespace NAIL_SALON.Models.Repositories
                              from pr in proGroup.DefaultIfEmpty()
                              join cate in en.tbl_Category on pr!=null ? pr.category_id : 0 equals cate.id into proCategoryGroup
                              from ca in proCategoryGroup.DefaultIfEmpty()
+                             where !ser.name.Equals("accompanying product")
                              orderby ser.id descending
                              select new
                              {

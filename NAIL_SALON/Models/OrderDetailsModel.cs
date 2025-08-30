@@ -11,8 +11,8 @@ namespace NAIL_SALON.Models
     public class OrderDetailsModel:INotifyPropertyChanged
     {
         private int _id;
-        private int _serviceId;
-        private int _orderId;
+        private int? _serviceId;
+        private int? _orderId;
         private int _rowNumber;
         private ServiceModel _currentServiceBelong;
         public int ID
@@ -39,7 +39,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int ServiceId
+        public int? ServiceId
         {
             get => _serviceId;
             set
@@ -51,7 +51,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int OrderId
+        public int? OrderId
         {
             get => _orderId;
             set

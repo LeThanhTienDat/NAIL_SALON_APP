@@ -13,10 +13,10 @@ namespace NAIL_SALON.Models
         private int _id;
         private string _name;
         private string _description;
-        private decimal _price;
+        private decimal? _price;
         private int? _categoryId;
-        private int _stock;
-        private int _active;
+        private int? _stock;
+        private int? _active;
         private string _image;
         private BitmapImage _currentImage;
         private string _categoryName;
@@ -61,7 +61,7 @@ namespace NAIL_SALON.Models
             }
         }
 
-        public decimal Price
+        public decimal? Price
         {
             get => _price;
             set
@@ -86,7 +86,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int Stock
+        public int? Stock
         {
             get => _stock;
             set
@@ -99,7 +99,7 @@ namespace NAIL_SALON.Models
             }
         }
 
-        public int Active
+        public int? Active
         {
             get => _active;
             set

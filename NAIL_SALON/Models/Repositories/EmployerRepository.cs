@@ -82,6 +82,31 @@ namespace NAIL_SALON.Models.Repositories
         {
             throw new NotImplementedException();
         }
+        public EmployerModel FindByPhone(string phone)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var item = (from em in en.tbl_Employer
+                            where em.phone.Equals(phone)
+                            select new EmployerModel
+                            {
+                                ID = em.id,
+                                Name = em.name,
+                                Phone = em.phone,
+                                Password = em.password,
+                                Email = em.email,
+                                Salt = em.salt,
+                                Active = em.active ?? 0,
+                            }).FirstOrDefault();
+                return item;
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return null;
+        }
 
         public HashSet<EmployerModel> GetAll()
         {

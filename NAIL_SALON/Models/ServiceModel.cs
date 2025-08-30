@@ -14,9 +14,9 @@ namespace NAIL_SALON.Models
         private int _id;
         private string _name;
         private string _description;
-        private decimal _price;
-        private int _active;  
-        private int _discount;
+        private decimal? _price;
+        private int? _active;  
+        private int? _discount;
         private int _rowNumber;
         private int _productAmount;
 
@@ -81,7 +81,7 @@ namespace NAIL_SALON.Models
             }
         }
 
-        public decimal Price
+        public decimal? Price
         {
             get => _price;
             set
@@ -93,7 +93,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int Active
+        public int? Active
         {
             get => _active;
             set
@@ -105,7 +105,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int Discount
+        public int? Discount
         {
             get => _discount;
             set

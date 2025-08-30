@@ -11,16 +11,21 @@ namespace NAIL_SALON.Models
     public class OrderModel:INotifyPropertyChanged
     {
         private int _id;
-        private int _customerId;
-        private int _employerId;
-        private decimal _totalPrice;
-        private int _totalDiscount;
-        private DateTime _orderDate;
+        private int? _customerId;
+        private int? _employerId;
+        private decimal? _totalPrice;
+        private int? _totalDiscount;
+        private DateTime? _orderDate;
+        private string _status;
+        private int? _paymentConfirm;
         private int _rowNumber;
         private OrderModel _currentOrder;
+        private CustomerModel _currentCustomer;
+        private EmployerModel _currentEmployer;
 
         public HashSet<OrderDetailsModel> OrderDetails { get; set; }
         private ObservableCollection<OrderDetailsModel> _orderDetailsModel;
+        //public ObservableCollection<OrderDetailsModel> OrderDetails { get; set; }
         public int ID
         {
             get => _id;
@@ -33,7 +38,52 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int CustomerId
+        public int? PaymentConfirm
+        {
+            get => _paymentConfirm;
+            set
+            {
+                if(_paymentConfirm != value)
+                {
+                    _paymentConfirm = value;
+                    OnPropertyChanged(nameof(PaymentConfirm));
+                }
+            }
+        }
+        public CustomerModel CurrentCustomer
+        {
+            get => _currentCustomer;
+            set
+            {
+                _currentCustomer = value;
+                OnPropertyChanged(nameof(CurrentCustomer));
+            }
+        }
+        public EmployerModel CurrentEmployer
+        {
+            get => _currentEmployer;
+            set
+            {
+                if( _currentEmployer != value)
+                {
+                    _currentEmployer = value;
+                    OnPropertyChanged(nameof(CurrentEmployer));
+                }
+            }
+        }
+        public string Status
+        {
+            get => _status;
+            set
+            {
+                if(_status != value)
+                {
+                    _status = value;
+                    OnPropertyChanged(nameof(Status));
+                }
+            }
+        }
+        public int? CustomerId
         {
             get => _customerId;
             set
@@ -45,7 +95,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int EmployerId
+        public int? EmployerId
         {
             get => _employerId;
             set
@@ -57,7 +107,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public decimal TotalPrice
+        public decimal? TotalPrice
         {
             get => _totalPrice;
             set
@@ -69,7 +119,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public int TotalDiscount
+        public int? TotalDiscount
         {
             get => _totalDiscount;
             set
@@ -81,7 +131,7 @@ namespace NAIL_SALON.Models
                 }
             }
         }
-        public DateTime OrderDate
+        public DateTime? OrderDate
         {
             get => _orderDate;
             set

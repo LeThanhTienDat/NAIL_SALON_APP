@@ -159,5 +159,19 @@ namespace NAIL_SALON.Models.Repositories
             }
             return false;
         }
+        public bool IsOrdering(CustomerModel entity)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                return en.tbl_Order.Any(order => order.customer_id == entity.ID && order.status.Equals("Processing"));
+
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return false;
+        }
     }
 }

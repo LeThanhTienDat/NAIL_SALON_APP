@@ -12,11 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NAIL_SALON.Models;
 using NAIL_SALON.Views.Customer;
 using NAIL_SALON.Views.Employer;
 using NAIL_SALON.Views.Product;
 using NAIL_SALON.Views.Service;
-
+using NAIL_SALON.Views.Login;
 namespace NAIL_SALON
 {
     /// <summary>
@@ -24,11 +25,24 @@ namespace NAIL_SALON
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private SessionModel _user;
+        
+        public MainWindow(SessionModel user)
         {
             InitializeComponent();
+            _user = user;
+            Authorization();
         }
-        
+        private void Authorization()
+        {
+            if (_user.IsAdmin == false)
+            { 
+                AdminMenu.Visibility = Visibility.Collapsed;
+                EmployerMenu.Visibility = Visibility.Collapsed;
+                ServiceMenu.Visibility = Visibility.Collapsed;
+                ProductMenu.Visibility = Visibility.Collapsed;
+            }
+        }
 
         public void Customer_Click(object sender, RoutedEventArgs e)
         {
@@ -48,13 +62,22 @@ namespace NAIL_SALON
         }
         public void CreateOrder_Click(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new Views.Order.OrderView();
+            MainContent.Content = new Views.Order.OrderView(_user);
         }
         public void Admin_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new Views.Admin.AdminView();
         }
-        
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            var confirm = MessageBox.Show("Are you sure to Logout ?", "Confirm Logout", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (confirm == MessageBoxResult.Yes)
+            {
+                Window loginWindow = new Views.Login.LoginView();
+                loginWindow.Show();
+                this.Close();
+            }
+        }
 
     }
 }

@@ -26,6 +26,8 @@ namespace NAIL_SALON.Models.Entities
         public Nullable<int> customer_id { get; set; }
         public Nullable<int> employer_id { get; set; }
         public Nullable<System.DateTime> order_date { get; set; }
+        public string status { get; set; }
+        public Nullable<int> payment_confirm { get; set; }
     
         public virtual tbl_Customer tbl_Customer { get; set; }
         public virtual tbl_Employer tbl_Employer { get; set; }

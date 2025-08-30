@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\hoc lap trinh\DotNet\WPFAPP\Git_NAIL_SALON\NAIL_SALON\App.xaml
-30-456323549
+332130874041
 21887155139
-90-79616998
-29-1452471261
-MainWindow.xaml;Models\Components\Admin\AdminUC.xaml;Models\Components\Customer\CustomerUC.xaml;Models\Components\Employer\EditEmployerUC.xaml;Models\Components\Employer\EmployerUC.xaml;Models\Components\Order\OrderUC.xaml;Models\Components\Product\EditProductUC.xaml;Models\Components\Product\ProductUC.xaml;Models\Components\ServiceProductUC\EditServiceProductUC.xaml;Models\Components\ServiceProductUC\ServiceProductUC.xaml;Models\Components\Service\EditServiceUC.xaml;Models\Components\Service\ServiceUC.xaml;Views\Admin\AdminView.xaml;Views\Admin\CreateAdmin.xaml;Views\Customer\CreateCustomer.xaml;Views\Customer\CustomerView.xaml;Views\Customer\EditCustomer.xaml;Views\Employer\CreateEmployer.xaml;Views\Employer\EditEmployer.xaml;Views\Employer\EmployerView.xaml;Views\Login\LoginView.xaml;Views\Order\CreateCustomer_Order.xaml;Views\Order\CreateOrder.xaml;Views\Order\OrderView.xaml;Views\Product\CreateProduct.xaml;Views\Product\EditProduct.xaml;Views\Product\ProductView.xaml;Views\Service\CreateService.xaml;Views\Service\EditService.xaml;Views\Service\ServiceView.xaml;
+97-343479337
+292096016051
+MainWindow.xaml;Models\Components\Admin\AdminUC.xaml;Models\Components\Customer\CustomerUC.xaml;Models\Components\Employer\EditEmployerUC.xaml;Models\Components\Employer\EmployerUC.xaml;Models\Components\Order\OrderUC.xaml;Models\Components\Product\EditProductUC.xaml;Models\Components\Product\ProductUC.xaml;Models\Components\ServiceProductUC\EditServiceProductUC.xaml;Models\Components\ServiceProductUC\ServiceProductUC.xaml;Models\Components\Service\EditServiceUC.xaml;Models\Components\Service\ServiceUC.xaml;Views\Admin\AdminView.xaml;Views\Admin\CreateAdmin.xaml;Views\Customer\CreateCustomer.xaml;Views\Customer\CustomerView.xaml;Views\Customer\EditCustomer.xaml;Views\Employer\CreateEmployer.xaml;Views\Employer\EditEmployer.xaml;Views\Employer\EmployerView.xaml;Views\Login\LoginView.xaml;Views\Order\BuyProduct.xaml;Views\Order\CreateCustomer_Order.xaml;Views\Order\CreateOrder.xaml;Views\Order\EditBuyProduct.xaml;Views\Order\EditOrder.xaml;Views\Order\OrderView.xaml;Views\Product\CreateProduct.xaml;Views\Product\EditProduct.xaml;Views\Product\ProductView.xaml;Views\Service\CreateService.xaml;Views\Service\EditService.xaml;Views\Service\ServiceView.xaml;
 
 True
 

@@ -7,11 +7,15 @@
         xmlns:materialDesignExtensions="http://materialdesigninxaml.net/winfx/xaml/extensions"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        xmlns:isOrderingConverter="clr-namespace:NAIL_SALON.Models.Helpers"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="CreateOrder" Height="1020" Width="1930"       
         WindowStartupLocation="CenterScreen"
         Background="#bbdefb">
 
+    <Window.Resources>
+        <isOrderingConverter:IsOrderingConverter x:Key="IsOrderingConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="189*"/>
@@ -63,6 +67,20 @@
                         </Style>
                     </DataGrid.Resources>
 
+                    <!-- Style for Row-->
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsOrdering}" Value="true">
+                                    <Setter Property="Background" Value="#FFC0CB"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsOrdering}" Value="false">
+                                    <Setter Property="Background" Value="#DFFFD6"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
                     <DataGrid.Columns>
                         <!-- Name column -->
                         <DataGridTextColumn Binding="{Binding Name}" IsReadOnly="True">
@@ -80,7 +98,7 @@
                                 VerticalContentAlignment="Center"
                                materialDesign:HintAssist.Hint="Name"
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding CustomerViewModel.FilterName, UpdateSourceTrigger=PropertyChanged}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
@@ -105,8 +123,8 @@
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
 
-                        <!-- BirthDay column -->
-                        <DataGridTextColumn Binding="{Binding BirthDay, StringFormat=dd/MM/yyyy}" IsReadOnly="True">
+                        <!-- Status Order column -->
+                        <DataGridTextColumn Binding="{Binding IsOrdering, Converter={StaticResource IsOrderingConverter}}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap"/>
@@ -117,10 +135,10 @@
                             </DataGridTextColumn.ElementStyle>
                             <DataGridTextColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBox Width="120"
-                        materialDesign:HintAssist.Hint="BirthDay"
-                        materialDesign:TextFieldAssist.HasClearButton="True"
-                        Text="{Binding DataContext.FilterBirthDay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                                    <TextBox Width="90"
+                                            materialDesign:HintAssist.Hint="Status"
+                                            materialDesign:TextFieldAssist.HasClearButton="True"
+                                            Text="{Binding DataContext.FilterBirthDay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
@@ -153,7 +171,7 @@
                 </DataGrid>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="0">
-                
+
                 <DataGrid ItemsSource="{Binding ServiceViewModel.Services, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" AutoGenerateColumns="False"
                           CanUserAddRows="False" RowHeight="80"
                           HorizontalContentAlignment="Center"
@@ -267,6 +285,25 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
+                <materialDesign:PopupBox
+                       Margin="11,448,0,0"
+                       VerticalAlignment="Top"
+                       PlacementMode="RightAndAlignMiddles"
+                       Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                       ToolTip="Manage items"
+                       UnfurlOrientation="Horizontal" Width="39" Height="38">
+                    <StackPanel Orientation="Horizontal">
+                        <Button    Command="{Binding OpenBuyProductCommand}"
+                                                         ToolTip="Buy Product">
+
+                            <Path Width="15"
+                                                      Height="15"
+                                                      Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                                                      Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                                                      Stretch="Uniform" />
+                        </Button>
+                    </StackPanel>
+                </materialDesign:PopupBox>
                 <Button Content="&lt;" HorizontalAlignment="Left" Margin="461,448,0,0" VerticalAlignment="Top" Height="33" Width="41"/>
                 <Button Content="&gt;" HorizontalAlignment="Left" Margin="507,448,0,0" VerticalAlignment="Top" Height="33" Width="41"/>
             </Grid>
@@ -321,7 +358,7 @@
 
                         <!-- Price column -->
                         <DataGridTextColumn Binding="{Binding CurrentServiceBelong.Price}" Header="Price" IsReadOnly="True">
-                            
+
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap"/>
@@ -358,14 +395,10 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <Button Content="Edit" Width="110" Margin="0,0,5,0"
-                                                Command="{Binding DataContext.OpenEditServiceCommand,
-                                                RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                                CommandParameter="{Binding}" /> 
-                                        <Button Content="Remove"  Width="110"
-                                                Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        <Button Content="Remove"  Width="100"
+                                                Command="{Binding DataContext.RemoveProductCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                                 CommandParameter="{Binding}"/>
-                                        <Button Content="Products" Width="80" Margin="0,0,5,0"
+                                        <Button Content="Products" Width="100" Margin="0,0,5,0"
                                                 Command="{Binding DataContext.CheckProductBelongCommand, RelativeSource={RelativeSource AncestorType=Window}}"                                                
                                                 CommandParameter="{Binding}" />
                                     </StackPanel>
@@ -379,8 +412,8 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Content="Create Order" HorizontalAlignment="Left" Margin="1086,10,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="170"/>
-                <Button Command="{Binding TestCommand}" Content="Cancel" HorizontalAlignment="Left" Margin="1261,10,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="98"/>
+                <Button Command="{Binding CreateOrderCommand}" Content="Create Order" HorizontalAlignment="Left" Margin="1086,10,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="170"/>
+                <Button Command="{Binding CloseCreateOrderCommand}" Content="Cancel" HorizontalAlignment="Left" Margin="1261,10,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="98"/>
                 <Label Content="Customer Name:" HorizontalAlignment="Left" Margin="0,7,0,0" VerticalAlignment="Top" FontSize="20" Width="163"/>
                 <Label Content="Phone Number:" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" FontSize="20" Width="163"/>
                 <TextBlock Text="{Binding CurrentCustomer.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="176,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="231" Height="31"/>
@@ -443,7 +476,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            
+
                             <!-- Quantity column -->
                             <DataGridTemplateColumn Header="Quantity" Width="100">
                                 <DataGridTemplateColumn.CellTemplate>

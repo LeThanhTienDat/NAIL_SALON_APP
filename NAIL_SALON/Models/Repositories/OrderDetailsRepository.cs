@@ -62,6 +62,28 @@ namespace NAIL_SALON.Models.Repositories
             }
             return false;
         }
+        public bool DeleteById(int id)
+        {
+            try
+            {
+                DbNailSalon en = new DbNailSalon();
+                var items = en.tbl_OrderDetails.Where(d=>d.order_id == id).ToList();
+                if(items != null)
+                {
+                    foreach(var item in items)
+                    {
+                        en.tbl_OrderDetails.Remove(item);
+                    }
+                    en.SaveChanges();
+                    return true;
+                }
+            }
+            catch (EntityException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return false;
+        }
 
         public HashSet<OrderDetailsModel> FindAll(string filter)
         {

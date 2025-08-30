@@ -7,22 +7,27 @@
         xmlns:materialDesignExtensions="http://materialdesigninxaml.net/winfx/xaml/extensions"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Title="POS-DatLee Nail Salon"
         WindowState="Maximized"
-        Title="MainWindow" Height="450" Width="800"
+        Height="450" Width="800"
         Background="#bbdefb">
     <Grid>
         <DockPanel>
             <Menu x:Name="MainMenu" DockPanel.Dock="Top" Background="#2196f3">
-                <MenuItem Header="Admin">
+                <MenuItem Header="Admin" x:Name="AdminMenu">
                     <MenuItem Header="Profile" Click="Admin_Click"/>
                     <Separator/>
-                    <MenuItem Header="Log Out"/>
+                    <MenuItem Header="Log Out" Click="Logout"/>
                 </MenuItem>
-                <MenuItem Header="Products" >
+                <MenuItem Header="Products" x:Name="ProductMenu">
                     <MenuItem Header="Manage Products" Click="Product_Click"/>
                 </MenuItem>
-                <MenuItem Header="Employer">
+                <MenuItem Header="Employer" x:Name="EmployerMenu">
                     <MenuItem Header="Manage Employer" Click="Employer_Click"/>
+                </MenuItem>
+                <MenuItem Header="Employer" x:Name="EmployerProfile">
+                    <Separator/>
+                    <MenuItem Header="Log Out" Click="Logout"/>
                 </MenuItem>
                 <MenuItem Header="Orders">
                     <MenuItem Header="Create Orders" Click="CreateOrder_Click"/>
@@ -31,7 +36,7 @@
                 <MenuItem Header="Customer">
                     <MenuItem Header="Manage Customer" Click="Customer_Click"/>
                 </MenuItem>
-                <MenuItem Header="Service">
+                <MenuItem Header="Service" x:Name="ServiceMenu">
                     <MenuItem Header="ManageService" Click="Service_Click"/>
                     <MenuItem Header="Report Service"/>
                 </MenuItem>

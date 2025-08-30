@@ -61,11 +61,11 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Active}" Value="0">
-                                <Setter Property="Background" Value="LightGray"/>
+                            <DataTrigger Binding="{Binding IsOrdering}" Value="true">
+                                <Setter Property="Background" Value="#FFC0CB"/>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding Active}" Value="1">
-                                <Setter Property="Background" Value="White"/>
+                            <DataTrigger Binding="{Binding IsOrdering}" Value="false">
+                                <Setter Property="Background" Value="#DFFFD6"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>

@@ -78,6 +78,8 @@
     <Property Name="customer_id" Type="int" />
     <Property Name="employer_id" Type="int" />
     <Property Name="order_date" Type="date" />
+    <Property Name="status" Type="varchar" MaxLength="100" />
+    <Property Name="payment_confirm" Type="int" />
   </EntityType>
   <EntityType Name="tbl_OrderDetails">
     <Key>

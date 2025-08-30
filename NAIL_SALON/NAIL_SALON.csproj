@@ -57,7 +57,7 @@
       <HintPath>packages\MaterialDesignThemes.5.2.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+      <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.135\lib\net462\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -133,11 +133,15 @@
       <DependentUpon>ServiceUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Helpers\AddOneConverter.cs" />
+    <Compile Include="Models\Helpers\IsOrderingConverter.cs" />
+    <Compile Include="Models\Helpers\PaymentConfirmConverter.cs" />
     <Compile Include="Models\Helpers\StoreImageHelper.cs" />
     <Compile Include="Models\Helpers\StringHelper.cs" />
+    <Compile Include="Models\SessionModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\EmployerViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -170,11 +174,20 @@
     <Compile Include="Views\Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Order\BuyProduct.xaml.cs">
+      <DependentUpon>BuyProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Order\CreateCustomer_Order.xaml.cs">
       <DependentUpon>CreateCustomer_Order.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Order\CreateOrder.xaml.cs">
       <DependentUpon>CreateOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\EditBuyProduct.xaml.cs">
+      <DependentUpon>EditBuyProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\EditOrder.xaml.cs">
+      <DependentUpon>EditOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Order\OrderView.xaml.cs">
       <DependentUpon>OrderView.xaml</DependentUpon>
@@ -289,11 +302,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Order\BuyProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Order\CreateCustomer_Order.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Order\CreateOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Order\EditBuyProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Order\EditOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

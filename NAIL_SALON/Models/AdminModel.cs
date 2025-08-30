@@ -17,7 +17,7 @@ namespace NAIL_SALON.Models
         private int _active;
         private string _salt;
         private string _confirmPassword;
-
+        private bool _isAdmin;
         public int ID
         {
             get => _id;
@@ -27,6 +27,18 @@ namespace NAIL_SALON.Models
                 {
                     _id = value;
                     OnPropertyChanged(nameof(ID));  
+                }
+            }
+        }
+        public bool IsAdmin
+        {
+            get => _isAdmin;
+            set
+            {
+                if(_isAdmin != value)
+                {
+                    _isAdmin = value;
+                    OnPropertyChanged(nameof(IsAdmin));
                 }
             }
         }

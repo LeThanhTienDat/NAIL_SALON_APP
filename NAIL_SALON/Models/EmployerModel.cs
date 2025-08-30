@@ -18,7 +18,7 @@ namespace NAIL_SALON.Models
         private string _salt;
         private int _active;        
         private string _confirmPassword;
-
+        private bool _isAdmin;
         public int RowNumber
         {
             get => _rowNumber;
@@ -28,6 +28,18 @@ namespace NAIL_SALON.Models
                 {
                     _rowNumber = value;
                     OnPropertyChanged(nameof(RowNumber));
+                }
+            }
+        }
+        public bool IsAdmin
+        {
+            get => _isAdmin;
+            set
+            {
+                if(_isAdmin != value)
+                {
+                    _isAdmin = value;
+                    OnPropertyChanged(nameof(IsAdmin));
                 }
             }
         }
