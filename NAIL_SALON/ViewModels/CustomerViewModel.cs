@@ -317,7 +317,7 @@ namespace NAIL_SALON.ViewModels
                 if (!string.IsNullOrEmpty(FilterPhone))
                 {
                     filtering = filtering.Where(e => e.Phone!= null && e.Phone.Contains(FilterPhone)).ToList();
-                }
+                }                
                 if (!string.IsNullOrEmpty(FilterAddress))
                 {
                     filtering = filtering.Where(e=>
@@ -343,6 +343,15 @@ namespace NAIL_SALON.ViewModels
                 int number = 1 + (page -1) * PageSize;
                 foreach(var item in pageData)
                 {
+                    var checkOrdering = CustomerRepository.Instance.IsOrdering(item);
+                    if (checkOrdering)
+                    {
+                        item.IsOrdering = true;
+                    }
+                    else
+                    {
+                        item.IsOrdering = false;
+                    }
                     item.RowNumber = number++;
                     Customers.Add(item);
                 }
@@ -382,7 +391,7 @@ namespace NAIL_SALON.ViewModels
             IsCreateSuccess = false;
             var showDialog = new Views.Customer.EditCustomer(customer)
             {
-                Owner = Application.Current.MainWindow,
+                //Owner = Application.Current.MainWindow,
             };
             showDialog.ShowDialog();
 

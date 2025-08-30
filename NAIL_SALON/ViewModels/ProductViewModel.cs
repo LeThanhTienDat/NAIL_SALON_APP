@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Security.Policy;
@@ -24,7 +25,7 @@ namespace NAIL_SALON.ViewModels
         public string ImagePath = "";
         public string ProductImage = "";
         public int _currentPage = 1;
-        public int PageSize =5;
+        public int PageSize =7;
         public string _showCurrentPage = "Page 1";
         private ProductModel _currentProduct;
         private HashSet<ProductModel> _allProducts;
@@ -314,7 +315,7 @@ namespace NAIL_SALON.ViewModels
             CurrentProduct.OriginalImage = CurrentProduct.Image;
             var showDialog = new Views.Product.EditProduct(product)
             {
-                Owner = Application.Current.MainWindow
+                
             };
             showDialog.ShowDialog();
         }
@@ -330,7 +331,7 @@ namespace NAIL_SALON.ViewModels
                 updateItem.Stock = CurrentProduct.Stock;
                 updateItem.Active = CurrentProduct.Active;
                 updateItem.CategoryId = CurrentProduct.CategoryId;
-                if(CurrentProduct.OriginalImage != CurrentProduct.Image)
+                if(!string.IsNullOrEmpty(ProductImage) && File.Exists(ProductImage))
                 {
                     updateItem.Image = ProductImage;
                     StoreImageHelper.StoreImage(ProductImage, ImagePath);

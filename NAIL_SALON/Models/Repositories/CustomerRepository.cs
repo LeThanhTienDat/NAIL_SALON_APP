@@ -94,6 +94,7 @@ namespace NAIL_SALON.Models.Repositories
                              join city in en.tbl_City
                              on cus.city_id equals city.id into groupCity
                              from subCity in groupCity.DefaultIfEmpty()
+                             orderby cus.id descending
                              select new CustomerModel
                              {
                                  ID = cus.id,

@@ -394,7 +394,7 @@ namespace NAIL_SALON.ViewModels
             }
             var showDialog = new Views.Service.EditService(service)
             {
-                Owner = Application.Current.MainWindow,               
+                //Owner = Application.Current.MainWindow,               
             };
             showDialog.ShowDialog();
 

@@ -98,7 +98,7 @@
                                 VerticalContentAlignment="Center"
                                materialDesign:HintAssist.Hint="Name"
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding CustomerViewModel.FilterName, UpdateSourceTrigger=PropertyChanged}" />
+                               Text="{Binding DataContext.CustomerViewModel.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
@@ -118,13 +118,13 @@
                                     <TextBox Width="100"
                                materialDesign:HintAssist.Hint="Phone"
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterPhone, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding DataContext.CustomerViewModel.FilterPhone, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
 
                         <!-- Status Order column -->
-                        <DataGridTextColumn Binding="{Binding IsOrdering, Converter={StaticResource IsOrderingConverter}}" IsReadOnly="True">
+                        <DataGridTextColumn Header="Status" Binding="{Binding IsOrdering, Converter={StaticResource IsOrderingConverter}}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap"/>
@@ -133,14 +133,6 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                            <DataGridTextColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <TextBox Width="90"
-                                            materialDesign:HintAssist.Hint="Status"
-                                            materialDesign:TextFieldAssist.HasClearButton="True"
-                                            Text="{Binding DataContext.FilterBirthDay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                                </DataTemplate>
-                            </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
 
 
@@ -197,7 +189,7 @@
                                 VerticalContentAlignment="Center"
                                materialDesign:HintAssist.Hint="Name"
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding DataContext.ServiceViewModel.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                             <DataGridTextColumn.ElementStyle>
@@ -220,7 +212,7 @@
                                materialDesign:TextFieldAssist.HasClearButton="True"
                                TextAlignment="Center"
                                PreviewTextInput="NumberOnlyTextBox"
-                               Text="{Binding DataContext.FilterPrice, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding DataContext.ServiceViewModel.FilterPrice, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                             <DataGridTextColumn.ElementStyle>
@@ -243,7 +235,7 @@
                                materialDesign:HintAssist.Hint="Discount"
                                 PreviewTextInput="NumberOnlyTextBox"                                        
                                materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterDiscount, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                               Text="{Binding DataContext.ServiceViewModel.FilterDiscount, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                             <DataGridTextColumn.ElementStyle>
@@ -528,124 +520,7 @@
                     <Button Content="&lt;" HorizontalAlignment="Left" Margin="559,448,0,0" VerticalAlignment="Top" Height="33" Width="41"/>
                     <Button Content="&gt;" HorizontalAlignment="Left" Margin="605,448,0,0" VerticalAlignment="Top" Height="33" Width="41"/>
                 </Grid>
-                <Grid Grid.Column="1">
-                    <DataGrid ItemsSource="{Binding ProductViewModel.Products}" AutoGenerateColumns="False"
-                  CanUserAddRows="False" RowHeight="100"
-                  HorizontalContentAlignment="Center"
-                  GridLinesVisibility="Horizontal" RowHeaderWidth="0" HeadersVisibility="Column"
-                  Margin="0,0,10,51"                            
-                  >
-
-                        <DataGrid.Resources>
-                            <Style TargetType="DataGridCell">
-                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                            </Style>
-                        </DataGrid.Resources>
-
-                        <DataGrid.Columns>
-
-                            <!-- Image column -->
-                            <DataGridTemplateColumn Header="Image" Width="100" IsReadOnly="True">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Image Source="{Binding CurrentImage}" 
-                           Width="95" Height="95" 
-                           Stretch="UniformToFill"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-
-                            <!-- Name column -->
-                            <DataGridTextColumn Binding="{Binding Name}" Width="100" IsReadOnly="True">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="TextWrapping" Value="Wrap"/>
-                                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
-                                        <Setter Property="MaxHeight" Value="100"/>
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                                <DataGridTextColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBox    Width="120"  
-                                VerticalContentAlignment="Center"                                      
-                               materialDesign:HintAssist.Hint="Name"
-                               materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterName, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                                    </DataTemplate>
-                                </DataGridTextColumn.HeaderTemplate>
-                            </DataGridTextColumn>
-
-                            <!-- Price column -->
-                            <DataGridTextColumn Binding="{Binding Price}" IsReadOnly="True">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="TextWrapping" Value="Wrap"/>
-                                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
-                                        <Setter Property="MaxHeight" Value="100"/>
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                                <DataGridTextColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBox Width="120"
-                               materialDesign:HintAssist.Hint="Price"
-                               materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterPrice, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                                    </DataTemplate>
-                                </DataGridTextColumn.HeaderTemplate>
-                            </DataGridTextColumn>
-
-                            <!-- Stock column -->
-                            <DataGridTextColumn Binding="{Binding Stock}" IsReadOnly="True">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="TextWrapping" Value="Wrap"/>
-                                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
-                                        <Setter Property="MaxHeight" Value="100"/>
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                                <DataGridTextColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBox Width="120"
-                               materialDesign:HintAssist.Hint="Amount in Stock"
-                               materialDesign:TextFieldAssist.HasClearButton="True"
-                               Text="{Binding DataContext.FilterStock, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-                                    </DataTemplate>
-                                </DataGridTextColumn.HeaderTemplate>
-                            </DataGridTextColumn>
-
-                            <!-- Action column -->
-                            <DataGridTemplateColumn >
-                                <DataGridTemplateColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Action" HorizontalAlignment="Center" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.HeaderTemplate>
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Content="Edit" Width="110" Margin="0,0,5,0"
-                                                    Command="{Binding DataContext.OpenEditCommand}"                                                   
-                                                    CommandParameter="{Binding}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.HeaderStyle>
-                                    <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
-                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                    </Style>
-                                </DataGridTemplateColumn.HeaderStyle>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Button Content="&lt;" HorizontalAlignment="Left" Margin="608,449,0,0" VerticalAlignment="Top" Height="33" Width="40"/>
-                    <Button Content="&gt;" HorizontalAlignment="Left" Margin="653,449,0,0" VerticalAlignment="Top" Height="33" Width="40"/>
-                </Grid>
+                
             </Grid>
         </Grid>
 

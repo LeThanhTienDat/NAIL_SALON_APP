@@ -143,22 +143,22 @@ namespace NAIL_SALON.Models.Repositories
                             ID = g.FirstOrDefault().cus.id,
                             Name =g.FirstOrDefault().cus.name,
                             DistrictId = g.FirstOrDefault().cus.district_id,
-                            DistrictName = g.FirstOrDefault().dis.district_name,
+                            DistrictName = g.FirstOrDefault().dis?.district_name,
                             CityId = g.FirstOrDefault().cus.city_id,
-                            CityName =g.FirstOrDefault().city.city_name,
+                            CityName =g.FirstOrDefault().city?.city_name,
                             Phone =g.FirstOrDefault().cus.phone,
                             Address =g.FirstOrDefault().cus.address,
                             BirthDay =g.FirstOrDefault().cus.birthday
                         },
                         CurrentEmployer = g.FirstOrDefault().em == null ? null : new EmployerModel
                         {
-                            ID= g.FirstOrDefault().em.id,
-                            Name=g.FirstOrDefault().em.name,
-                            Phone =g.FirstOrDefault().em.phone,
-                            Password =g.FirstOrDefault().em.password,
-                            Email=g.FirstOrDefault().em.email,
-                            Salt =g.FirstOrDefault().em.salt,
-                            Active =g.FirstOrDefault().em.active ?? 0
+                            ID= g.FirstOrDefault().em?.id ?? 0,
+                            Name=g.FirstOrDefault().em?.name ?? "",
+                            Phone =g.FirstOrDefault().em?.phone ?? "",
+                            Password =g.FirstOrDefault().em?.password ?? "",
+                            Email=g.FirstOrDefault().em?.email ?? "",
+                            Salt =g.FirstOrDefault().em?.salt ?? "",
+                            Active =g.FirstOrDefault().em?.active ?? 0
                         },
                         OrderDetailsModel = new ObservableCollection<OrderDetailsModel>(
                             g.Where(x => x.od != null)

@@ -287,7 +287,7 @@ namespace NAIL_SALON.ViewModels
             IsCreateSuccess = false;
             var showEdit = new Views.Employer.EditEmployer(employer)
             {
-                Owner = Application.Current.MainWindow
+                //Owner = Application.Current.MainWindow
             };
             showEdit.ShowDialog();
         }

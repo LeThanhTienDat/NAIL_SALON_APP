@@ -463,7 +463,14 @@ namespace NAIL_SALON.ViewModels
                     {
                         var newOrder = new OrderModel();
                         newOrder.CustomerId = CurrentCustomer.ID;
-                        newOrder.EmployerId = _currentAdmin.ID;
+                        if(_currentAdmin.IsAdmin == false)
+                        {
+                            newOrder.EmployerId = _currentAdmin.ID;
+                        }
+                        else
+                        {
+                            newOrder.EmployerId = null;
+                        }
                         newOrder.OrderDate = DateTime.Now;
                         newOrder.Status = "Processing";
                         OrderRepository.Instance.Create(newOrder);

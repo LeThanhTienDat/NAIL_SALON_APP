@@ -42,6 +42,10 @@ namespace NAIL_SALON
                 ServiceMenu.Visibility = Visibility.Collapsed;
                 ProductMenu.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                EmployerProfile.Visibility = Visibility.Collapsed;
+            }
         }
 
         public void Customer_Click(object sender, RoutedEventArgs e)

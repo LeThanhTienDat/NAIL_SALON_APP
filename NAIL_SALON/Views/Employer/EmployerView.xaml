@@ -17,8 +17,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="89*"/>
-            <RowDefinition Height="654*"/>
-            <RowDefinition Height="107*"/>
+            <RowDefinition Height="514*"/>
+            <RowDefinition Height="247*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <materialDesign:PopupBox
@@ -56,7 +56,7 @@
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
                     </Style>
                 </DataGrid.Resources>
-                
+
                 <!-- Style for Row-->
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
